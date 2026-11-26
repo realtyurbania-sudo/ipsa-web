@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="IPSA Investments Platform">
+<meta property="og:description" content="Estructuras financieras y jurídicas, desarrollo de negocios y consultoría.">
+<link rel="canonical" href="https://ipsasite.com/">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>IPSA Investments Platform</title>
+<meta name="color-scheme" content="light">
+<meta name="description" content="IPSA, Investments Platform: estructuras financieras y jurídicas, desarrollo de negocios y consultoría.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap">
+<style>
+:root{
+  --blanco:#FFFFFF; --perla:#F6F3EE; --grafito:#1E2220; --carbon:#23221F; --gris:#6B6A66; --gris-st:#5B5A56;
+  --linea:#E7E2D9; --linea-2:#D9D2C6; --esmeralda:#0E8A63; --esmeralda-2:#0B7353; --claro:#2FBF8A; --tx-dk:#B3B1AA;
+  --f:'Manrope',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --max:1200px; --g:clamp(20px,4vw,40px); --pad:clamp(80px,12vw,128px);
+  color-scheme:light;
+}
+html{color-scheme:light;scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%;background:#fff}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--grafito);font-family:var(--f);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:#fff}
+a{color:inherit}
+img{max-width:100%}
+.wrap{width:100%;max-width:calc(var(--max) + 2 * var(--g));margin:0 auto;padding-left:max(var(--g),env(safe-area-inset-left,0px));padding-right:max(var(--g),env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+.sec{padding-block:var(--pad)}
+
+/* sistema tipográfico del manual: antetítulo con raya esmeralda, titular Light + ExtraBold */
+.k{display:flex;align-items:center;gap:14px;font-size:12.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--esmeralda-2);line-height:1.3}
+.k::before{content:"";width:34px;height:2px;background:var(--esmeralda);flex:none}
+.h{font-weight:300;letter-spacing:-.03em;line-height:1.06;margin-top:24px;color:var(--grafito)}
+.h b{font-weight:800;display:block;letter-spacing:-.032em}
+h1.h{font-size:clamp(40px,4.15vw,60px)}
+h2.h{font-size:clamp(34px,3.9vw,56px)}
+.lead{font-size:clamp(17px,1.3vw,19px);line-height:1.62;color:var(--gris);margin-top:26px;max-width:34em}
+.dots{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:14px}
+.dots li{display:flex;gap:14px;align-items:center;font-weight:600;font-size:16px;line-height:1.4}
+.dots .ic{width:22px;height:22px;color:var(--esmeralda);flex:none}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;border-radius:999px;padding:0 28px;font:700 15.5px/1 var(--f);text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:background .2s,color .2s,border-color .2s,transform .2s;white-space:nowrap}
+.btn:focus-visible,.lang button:focus-visible,.nav a:focus-visible,.mail .copy:focus-visible,.sv:focus-visible,.wam:focus-visible,.logo:focus-visible{outline:2.5px solid var(--esmeralda);outline-offset:3px}
+.btn-p{background:var(--esmeralda);color:#fff}
+.btn-p:hover{background:var(--esmeralda-2);transform:translateY(-1px)}
+.btn-s{border-color:var(--grafito);color:var(--grafito);background:#fff}
+.btn-s:hover{background:var(--grafito);color:#fff}
+.btn .ic{width:18px;height:18px}
+
+/* cabecera */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.94);-webkit-backdrop-filter:saturate(1.2) blur(10px);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid transparent;transition:border-color .25s}
+header.sc{border-bottom-color:var(--linea)}
+.hd{display:flex;align-items:center;gap:32px;height:76px}
+.hd .logo{display:block;width:96px;flex:none}
+.hd .logo svg{display:block;width:100%;height:auto}
+.nav{display:flex;gap:32px;margin-left:auto}
+.nav a{font-size:14.5px;font-weight:600;text-decoration:none;color:var(--gris);transition:color .2s}
+.nav a:hover{color:var(--grafito)}
+.lang{display:flex;border:1px solid var(--linea-2);border-radius:999px;padding:3px;flex:none}
+.lang button{border:0;background:none;font:700 12px/1 var(--f);letter-spacing:.08em;padding:10px 13px;border-radius:999px;color:var(--gris);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--grafito);color:#fff}
+.hd .btn{min-height:42px;padding:0 22px;font-size:14px}
+
+/* héroe: blanco con el titular + panel de ónix con bandas a sangre con la foto (como la portada del manual) */
+.hero,.enf,footer{container-type:inline-size}
+.hero{display:grid;grid-template-columns:minmax(0,56fr) minmax(0,44fr);--edge:max(var(--g),calc(50vw - var(--max) / 2));--edge:max(var(--g),calc(50cqw - var(--max) / 2))}
+.hero-t{padding:clamp(64px,7vw,112px) clamp(32px,4.5vw,72px) clamp(72px,8vw,120px) var(--edge);display:flex;flex-direction:column;justify-content:center}
+.hero-t .lead{max-width:30em}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
+.tags{display:grid;grid-template-columns:repeat(2,max-content);gap:14px 44px;margin:48px 0 0;padding:28px 0 0;border-top:1px solid var(--linea);list-style:none;max-width:580px}
+.tags li{display:flex;align-items:baseline;gap:10px;font-size:14px;font-weight:600;color:var(--grafito);line-height:1.4}
+.tags li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--esmeralda);flex:none;transform:translateY(-1px)}
+.hero-v{position:relative;background:#F5F3ED url(img/piedra-bandas.webp) 22% 50%/cover no-repeat;padding:clamp(72px,7vw,112px) clamp(40px,6vw,96px) clamp(96px,9vw,136px) clamp(48px,5.5vw,88px);display:flex;align-items:center}
+.hv{position:relative;width:100%;max-width:520px}
+.hv-ph{margin:0;aspect-ratio:5/4;overflow:hidden;background:var(--perla)}
+.hv-ph img{display:block;width:100%;height:100%;object-fit:cover}
+.badge-ip{position:absolute;left:-30px;top:-30px;width:80px;height:80px;border-radius:50%;background:var(--grafito);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 28px -18px rgba(30,34,32,.55);animation:flota 7s ease-in-out infinite reverse}
+.badge-ip svg{width:50%;height:auto;display:block}
+.hcard{position:absolute;left:-44px;bottom:-92px;width:min(262px,56%);background:#fff;padding:18px 20px 16px;box-shadow:0 22px 44px -26px rgba(30,34,32,.34);display:grid;gap:6px;animation:flota 6s ease-in-out infinite}
+.hcard b{font-size:14.5px;font-weight:800;margin-top:6px}
+.hcard small{font-size:11.5px;color:var(--gris);font-weight:600;letter-spacing:.02em;text-wrap:balance}
+
+/* encabezado de sección */
+.sh{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:40px;align-items:end;margin-bottom:clamp(56px,6.5vw,96px)}
+.sh .lead{justify-self:end;margin:0 0 6px;max-width:360px}
+
+/* servicios: rueda + cuatro frentes separados por filetes */
+.serv-g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(48px,7vw,112px);align-items:center}
+.svs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px 48px}
+.sv{position:relative;padding-top:30px;border-top:1px solid var(--linea);min-width:0;cursor:default}
+.sv::before{content:"";position:absolute;left:0;top:-1px;height:2px;width:0;background:var(--esmeralda);transition:width .7s cubic-bezier(.2,.7,.2,1)}
+.sv.on::before{width:100%}
+.sv .ic{width:32px;height:32px;color:var(--esmeralda);display:block}
+.sv h3{font-size:19px;font-weight:800;letter-spacing:-.01em;margin-top:20px;line-height:1.25}
+.sv > p{color:var(--gris);font-size:15.5px;margin-top:6px}
+.sv ul{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:9px}
+.sv li{display:flex;gap:11px;font-size:14.5px;font-weight:600;line-height:1.4}
+.sv li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--esmeralda);margin-top:7px}
+
+/* recorrido del capital: banda de piedra arena */
+.flow-band{background:#ECE7E0 url(img/piedra-arena.webp) center/cover no-repeat}
+.flow-band .sh{margin-bottom:clamp(56px,6vw,88px)}
+
+/* para quién */
+.who{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,2.6vw,36px)}
+.wc{min-width:0}
+.wc figure{margin:0;aspect-ratio:4/5;overflow:hidden;background:var(--perla)}
+.wc img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.wc:hover img{transform:scale(1.035)}
+.wc h3{font-size:18px;font-weight:800;margin-top:24px;display:flex;align-items:center;gap:11px;letter-spacing:-.01em}
+.wc h3::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--esmeralda);flex:none}
+.wc p{font-size:15px;color:var(--gris);margin-top:8px;line-height:1.55}
+
+/* estructura: diagrama sobre un panel de piedra perla */
+.est-g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(48px,7vw,112px);align-items:center}
+.dg{background:#F5F2EC url(img/piedra-perla.webp) 0% 60%/cover no-repeat;padding:clamp(22px,4vw,56px);min-width:0}
+.dg .nota{font-size:13px;color:var(--gris-st);margin-top:18px;font-weight:500}
+
+/* cómo trabajamos */
+.proc-g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(48px,8vw,128px);align-items:center}
+.foto{margin:0;aspect-ratio:4/5;overflow:hidden;background:var(--perla)}
+.foto img{display:block;width:100%;height:100%;object-fit:cover}
+.steps{list-style:none;margin:56px 0 0;padding:0;display:grid;gap:34px;position:relative}
+.steps::before{content:"";position:absolute;left:26px;top:26px;bottom:26px;width:1px;background:var(--linea-2)}
+.steps li{position:relative;display:grid;grid-template-columns:52px 1fr;column-gap:26px;align-items:start}
+.steps li > div{min-width:0;padding-top:3px}
+.steps .n{width:52px;height:52px;border-radius:50%;background:#fff;border:1px solid var(--grafito);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;font-variant-numeric:tabular-nums;position:relative}
+.steps li:last-child .n{background:var(--esmeralda);border-color:var(--esmeralda);color:#fff}
+.steps h3{font-size:19px;font-weight:800;letter-spacing:-.01em}
+.steps p{color:var(--gris);font-size:15.5px;margin-top:2px}
+
+/* enfoque: mitad grafito con el titular, mitad blanca con foto y principios (como «La marca» del manual) */
+.enf{display:grid;grid-template-columns:minmax(0,11fr) minmax(0,13fr);--edge:max(var(--g),calc(50vw - var(--max) / 2));--edge:max(var(--g),calc(50cqw - var(--max) / 2))}
+.enf-a{background:var(--grafito);color:#fff;padding:var(--pad) clamp(32px,4.5vw,72px) var(--pad) var(--edge);display:flex;flex-direction:column;justify-content:space-between;gap:72px}
+.enf-a .k{color:var(--claro)}
+.enf-a .k::before{background:var(--claro)}
+.enf-a .h{color:#fff;font-size:clamp(44px,4.6vw,66px);line-height:1.02}
+.enf-a .lead{color:var(--tx-dk);max-width:24em}
+.enf-q{margin:0;font-size:clamp(22px,2vw,30px);font-weight:300;letter-spacing:-.02em;line-height:1.25;color:#fff}
+.enf-q::before{content:"";display:block;width:34px;height:2px;background:var(--claro);margin-bottom:26px}
+.enf-q b{font-weight:800;display:block}
+.enf-b{padding:var(--pad) var(--edge) var(--pad) clamp(40px,6vw,96px);min-width:0}
+.enf-b figure{margin:0;aspect-ratio:16/10;overflow:hidden;background:var(--perla)}
+.enf-b figure img{display:block;width:100%;height:100%;object-fit:cover}
+.vals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 44px;margin-top:56px}
+.val{display:flex;gap:18px;align-items:flex-start;min-width:0}
+.val .ic{width:30px;height:30px;flex:none;color:var(--esmeralda);margin-top:2px}
+.val h3{font-size:19px;font-weight:800;letter-spacing:-.01em;line-height:1.25}
+.val p{color:var(--gris);font-size:15px;margin-top:4px;line-height:1.55}
+
+/* consultoría: panel de ónix blanco + foto */
+.cta-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.cta-st{background:#F5F3ED url(img/piedra-onix.webp) center/cover no-repeat;padding:clamp(48px,5vw,80px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-width:0}
+.cta-st .btn{margin-top:40px}
+.cta-st h2.h{font-size:clamp(32px,3.3vw,48px)}
+.cta-ph{margin:0;min-width:0;overflow:hidden;background:var(--perla);position:relative;min-height:440px}
+.cta-ph img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+
+/* contacto */
+.cont-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(48px,7vw,112px);align-items:start}
+.datos{margin-top:40px;display:grid;gap:8px;font-size:15px}
+.datos b{display:inline-block;min-width:70px;color:var(--gris);font-weight:600}
+.mail{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:18px 0;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);max-width:440px}
+.mail b{min-width:0!important;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--gris)}
+.mail .addr{font-weight:700;font-size:17px;user-select:all}
+.mail .copy{margin-left:auto;border:1px solid var(--grafito);background:#fff;border-radius:999px;padding:8px 16px;font:700 12.5px/1 var(--f);cursor:pointer;color:var(--grafito)}
+.mail .copy:hover{background:var(--grafito);color:#fff}
+form{display:grid;grid-template-columns:1fr 1fr;gap:24px 24px;min-width:0}
+.fld{display:flex;flex-direction:column;gap:8px;min-width:0}
+.fld.full{grid-column:1/-1}
+label{font-size:13px;font-weight:700;color:var(--grafito);letter-spacing:.01em}
+input,select,textarea{font:500 16px/1.4 var(--f);color:var(--grafito);background:#fff;border:1px solid var(--linea-2);border-radius:10px;padding:14px 16px;width:100%;transition:border-color .2s,box-shadow .2s}
+select{-webkit-appearance:none;appearance:none;padding-right:44px;background:#fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%231E2220' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>") right 16px center/14px no-repeat}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--esmeralda);box-shadow:0 0 0 3px rgba(14,138,99,.14)}
+textarea{min-height:140px;resize:vertical}
+form .btn{justify-self:start;margin-top:4px}
+.msg{grid-column:1/-1;font-size:14.5px;font-weight:600;border-left:2px solid currentColor;padding:6px 0 6px 16px}
+.msg.ok{color:var(--esmeralda-2)}
+.msg.err{color:#9A3B24}
+
+/* pie: grafito + piedra zen, como la contraportada */
+footer{background:var(--grafito);color:#fff;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);--edge:max(var(--g),calc(50vw - var(--max) / 2));--edge:max(var(--g),calc(50cqw - var(--max) / 2))}
+.ft-a{padding:clamp(80px,9vw,128px) clamp(32px,5vw,80px) 40px var(--edge);min-width:0}
+.ft-a .logo{display:block;width:210px;max-width:100%}
+.ft-a .logo svg{display:block;width:100%;height:auto}
+.ft-q{font-size:clamp(22px,2.1vw,30px);font-weight:300;letter-spacing:-.02em;line-height:1.3;margin-top:44px;color:#fff}
+.ft-q b{font-weight:800}
+.ft-c{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:20px;color:var(--tx-dk);font-weight:600;font-size:15px}
+.ft-c a{text-decoration:none}.ft-c a:hover{color:#fff}
+.ft-c i{width:6px;height:6px;border-radius:50%;background:var(--claro)}
+.ft-b{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;margin-top:clamp(64px,7vw,104px);padding-top:26px;border-top:1px solid rgba(255,255,255,.12);font-size:13px;color:var(--tx-dk)}
+.ft-b small{font-size:13px;line-height:1.5}
+.wam{display:inline-flex;align-items:center;gap:10px;color:var(--tx-dk);text-decoration:none;font-weight:600;font-size:13px;letter-spacing:.04em}
+.wam img{height:17px;width:auto;display:block}
+.wam:hover{color:#fff}
+.ft-st{background:#ECE7E0 url(img/piedra-zen.webp) 40% 50%/cover no-repeat;min-height:100%}
+
+.serv-g > *,.est-g > *,.proc-g > *,.cont-g > *,.who > *{min-width:0}
+/* aparición al bajar (solo si hay JS y el bloque está fuera de la pantalla al cargar) */
+.rv{transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.pre{opacity:0;transform:translateY(24px)}
+
+@media (max-width:1100px){
+  .nav{gap:22px}
+  .hero{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+}
+@media (max-width:1000px){
+  .nav{display:none}
+  .hd .lang{margin-left:auto}
+  .hero{grid-template-columns:1fr}
+  .hero-t{padding:56px var(--g) 64px}
+  .hero-v{padding:48px var(--g) 56px}
+  .hv{max-width:560px;margin:0 auto}
+  .badge-ip{left:-8px;top:-26px;width:64px;height:64px}
+  .hcard{position:relative;left:auto;bottom:auto;margin:-40px 0 0 14px;width:min(262px,70%)}
+}
+@media (max-width:900px){
+  .sh{grid-template-columns:1fr;gap:0}
+  .sh .lead{justify-self:start;margin-top:22px}
+  .serv-g,.est-g,.proc-g,.cont-g{grid-template-columns:1fr;gap:56px}
+  .who{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 20px}
+  .proc-g .foto{aspect-ratio:4/3}
+  .enf{grid-template-columns:1fr}
+  .enf-a{padding:var(--pad) var(--g);gap:56px}
+  .enf-b{padding:56px var(--g) var(--pad)}
+  .cta-g{grid-template-columns:1fr}
+  .cta-ph{order:-1;aspect-ratio:4/3;min-height:0}
+  footer{grid-template-columns:1fr}
+  .ft-st{order:-1;min-height:132px}
+  .ft-a{padding:72px var(--g) 36px}
+}
+@media (max-width:560px){
+  .hd{gap:12px;height:64px}
+  .hd .logo{width:82px}
+  .hd .btn{min-height:40px;padding:0 16px;font-size:13px}
+  .tags{grid-template-columns:1fr 1fr;gap:12px 18px;margin-top:44px}
+  .svs{grid-template-columns:1fr;gap:44px}
+  .who{grid-template-columns:1fr;gap:56px}
+  .vals{grid-template-columns:1fr;gap:30px;margin-top:44px}
+  .cta-st{padding:44px 24px 48px}
+  form{grid-template-columns:1fr;gap:20px}
+  .ft-b{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:440px){.tags{grid-template-columns:1fr;gap:12px}}
+@media (max-width:359px){.hd .btn{display:none}}
+@media (prefers-reduced-motion:reduce){.rv.pre{opacity:1;transform:none}}
+
+/* tarjeta flotante del héroe */
+.mchart{width:100%;height:auto;display:block}
+@keyframes crece{from{transform:scaleY(.2)}to{transform:none}}
+.mchart .bar{transform-box:fill-box;transform-origin:bottom;animation:crece 1.1s cubic-bezier(.2,.7,.2,1) both}
+.mchart .bar:nth-of-type(2){animation-delay:.12s}.mchart .bar:nth-of-type(3){animation-delay:.24s}.mchart .bar:nth-of-type(4){animation-delay:.36s}
+@keyframes traza{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.mchart .trend{stroke-dasharray:1;animation:traza 1.4s .5s cubic-bezier(.3,.6,.2,1) both}
+@keyframes flota{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+
+/* rueda de servicios */
+.rad{width:100%;max-width:440px;height:auto;display:block;margin:0 auto;overflow:visible}
+.rad .rad-o{fill:none;stroke:var(--linea);stroke-width:1}
+.rad .rad-i{fill:#fff;stroke:var(--linea);stroke-width:1}
+.rad .seg{cursor:pointer;transition:transform .45s cubic-bezier(.2,.7,.2,1),opacity .35s}
+.rad .sg{fill:#fff;stroke:var(--linea-2);stroke-width:1.2;transition:fill .4s,stroke .4s}
+.rad .si{stroke:var(--grafito);transition:stroke .4s}
+.rad .sn{font:700 11px var(--f);letter-spacing:.12em;fill:var(--gris);transition:fill .4s}
+.rad .seg.on{transform:translate(var(--dx),var(--dy))}
+.rad .seg.on .sg{fill:var(--esmeralda);stroke:var(--esmeralda)}
+.rad .seg.on .si{stroke:#fff}
+.rad .seg.on .sn{fill:var(--esmeralda)}
+.rad-c{font:700 11px var(--f);letter-spacing:.18em;text-transform:uppercase;fill:var(--gris)}
+
+/* recorrido del capital (sobre piedra arena) */
+.flow-w{position:relative}
+.flow{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;margin:0;padding:0;list-style:none}
+.flow::before{content:"";position:absolute;left:10%;right:10%;top:40px;height:1px;background:repeating-linear-gradient(90deg,rgba(30,34,32,.38) 0 7px,transparent 7px 14px)}
+.flow-w .run{position:absolute;left:10%;right:10%;top:35px;height:11px;pointer-events:none;z-index:2}
+.flow-w .run i{position:absolute;top:0;left:0;width:11px;height:11px;border-radius:50%;background:var(--esmeralda);box-shadow:0 0 0 5px rgba(14,138,99,.14);animation:viaja 7.5s linear infinite}
+.flow-w .run i:nth-child(2){animation-delay:-2.5s}.flow-w .run i:nth-child(3){animation-delay:-5s}
+@keyframes viaja{from{left:0}to{left:calc(100% - 11px)}}
+.flow li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;min-width:0}
+.flow .ci{width:80px;height:80px;border-radius:50%;background:#fff;border:1px solid var(--linea-2);display:flex;align-items:center;justify-content:center;color:var(--esmeralda);position:relative;z-index:3}
+.flow li:last-child .ci{background:var(--esmeralda);border-color:var(--esmeralda);color:#fff}
+.flow .ci svg{width:32px;height:32px}
+.flow h3{font-size:17px;font-weight:800;margin-top:12px;letter-spacing:-.01em;line-height:1.25}
+.flow p{font-size:14.5px;color:var(--gris-st);line-height:1.45}
+
+/* diagrama de estructura (sobre piedra perla) */
+.dg-svg{width:100%;height:auto;display:block}
+.dg-svg .ln{fill:none;stroke:rgba(30,34,32,.42);stroke-width:1.3;stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 1.8s cubic-bezier(.3,.6,.2,1)}
+.dg.pre .ln{stroke-dashoffset:1}
+.dg-svg .nd rect{stroke-width:1.2}
+.dg-svg .n-w rect{fill:#fff;stroke:var(--linea-2)}
+.dg-svg .n-g rect{fill:var(--grafito);stroke:var(--grafito)}
+.dg-svg .n-o rect{fill:#fff;stroke:var(--linea-2)}
+.dg-svg .n-m rect{fill:#fff;stroke:var(--esmeralda);stroke-width:1.5}
+.dg-svg .t1{font:700 16.5px var(--f);text-anchor:middle;fill:var(--grafito)}
+.dg-svg .n-g .t1{fill:#fff;font-weight:800;font-size:19px}
+.dg-svg .n-m .t1{font-weight:800}
+.dg-svg .t2{font:700 11.5px var(--f);text-anchor:middle;fill:var(--claro);letter-spacing:.16em;text-transform:uppercase}
+.dg-svg .pulse{fill:var(--esmeralda);transform-box:fill-box;transform-origin:center;animation:late 2.4s ease-in-out infinite}
+.dg-svg .p2{animation-delay:.8s}.dg-svg .p3{animation-delay:1.6s}
+@keyframes late{0%,100%{transform:scale(.7);opacity:.5}50%{transform:scale(1.25);opacity:1}}
+.dg-v{display:none}
+
+@media (max-width:900px){
+  .flow{grid-template-columns:1fr;gap:26px;max-width:440px}
+  .flow::before{left:40px;right:auto;top:24px;bottom:24px;width:1px;height:auto;background:repeating-linear-gradient(180deg,rgba(30,34,32,.38) 0 7px,transparent 7px 14px)}
+  .flow-w .run{display:none}
+  .flow li{flex-direction:row;text-align:left;align-items:center;gap:22px}
+  .flow li > div{min-width:0}
+  .flow h3{margin-top:0}
+}
+@media (max-width:560px){
+  .dg-h{display:none}
+  .dg-v{display:block}
+}
+@media (prefers-reduced-motion:reduce){.dg.pre .ln{stroke-dashoffset:0}.flow-w .run{display:none}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap hd">
+  <a class="logo" href="#inicio" aria-label="IPSA, inicio" data-i18n-aria="a.home"><svg class="lg" role="img" aria-label="IPSA" xmlns="http://www.w3.org/2000/svg" viewBox="-5.7 -86.7 295.1 92.4">
+<path fill="#0E8A63" d="M20.75 -70.67 L20.70 -71.68 L20.55 -72.69 L20.30 -73.68 L19.96 -74.64 L19.52 -75.56 L19.00 -76.43 L18.39 -77.25 L17.71 -78.00 L16.96 -78.68 L16.14 -79.29 L15.27 -79.81 L14.35 -80.25 L13.39 -80.59 L12.40 -80.84 L11.39 -80.99 L10.38 -81.04 L9.36 -80.99 L8.35 -80.84 L7.36 -80.59 L6.40 -80.25 L5.48 -79.81 L4.61 -79.29 L3.79 -78.68 L3.04 -78.00 L2.36 -77.25 L1.75 -76.43 L1.23 -75.56 L0.79 -74.64 L0.45 -73.68 L0.20 -72.69 L0.05 -71.68 L0.00 -70.67 L0.05 -69.65 L0.20 -68.64 L0.45 -67.65 L0.79 -66.69 L1.23 -65.77 L1.75 -64.90 L2.36 -64.08 L3.04 -63.33 L3.79 -62.65 L4.61 -62.04 L5.48 -61.52 L6.40 -61.08 L7.36 -60.74 L8.35 -60.49 L9.36 -60.34 L10.37 -60.29 L11.39 -60.34 L12.40 -60.49 L13.39 -60.74 L14.35 -61.08 L15.27 -61.52 L16.14 -62.04 L16.96 -62.65 L17.71 -63.33 L18.39 -64.08 L19.00 -64.90 L19.52 -65.77 L19.96 -66.69 L20.30 -67.65 L20.55 -68.64 L20.70 -69.65 Z"/>
+<path fill="#1E2220" d="M20.75 -53.67 L20.75 0.00 L0.00 0.00 L0.00 -53.67 Z M108.41 -41.02 L108.28 -43.75 L108.01 -46.22 L107.58 -48.67 L106.94 -51.33 L106.21 -53.70 L105.33 -56.03 L104.19 -58.52 L103.02 -60.71 L101.72 -62.82 L100.29 -64.86 L98.73 -66.80 L96.89 -68.82 L94.92 -70.71 L93.01 -72.31 L91.02 -73.79 L88.93 -75.15 L86.77 -76.37 L84.54 -77.46 L82.01 -78.50 L79.65 -79.30 L77.25 -79.94 L74.57 -80.49 L72.11 -80.82 L69.63 -81.00 L67.14 -81.03 L64.66 -80.91 L61.94 -80.60 L59.50 -80.16 L56.84 -79.51 L54.47 -78.75 L51.93 -77.76 L49.67 -76.71 L47.92 -75.78 L46.00 -74.62 L44.15 -73.36 L42.57 -72.16 L41.05 -70.88 L39.59 -69.52 L38.20 -68.10 L36.73 -66.42 L35.34 -64.66 L34.20 -63.03 L33.13 -61.35 L32.15 -59.62 L31.15 -57.62 L30.36 -55.80 L29.57 -53.70 L28.97 -51.81 L28.35 -49.40 L27.88 -46.96 L27.54 -44.24 L27.39 -41.76 L27.37 0.00 L48.12 0.00 L48.12 -5.15 L50.12 -4.11 L52.38 -3.08 L54.71 -2.20 L57.08 -1.47 L59.50 -0.88 L61.94 -0.44 L64.41 -0.15 L66.90 -0.01 L69.38 -0.03 L71.86 -0.20 L74.33 -0.51 L76.77 -0.98 L79.18 -1.60 L81.54 -2.37 L83.85 -3.28 L86.11 -4.33 L88.72 -5.76 L91.02 -7.25 L93.40 -9.04 L95.47 -10.83 L97.41 -12.76 L99.21 -14.81 L101.02 -17.19 L102.52 -19.48 L103.86 -21.86 L105.03 -24.33 L106.04 -26.87 L106.94 -29.71 L107.58 -32.37 L108.07 -35.31 L108.35 -38.28 Z M87.66 -40.28 L87.54 -38.34 L87.23 -36.43 L86.74 -34.55 L86.06 -32.73 L85.21 -30.99 L84.19 -29.34 L83.02 -27.79 L81.70 -26.37 L80.24 -25.08 L78.67 -23.95 L76.99 -22.97 L75.23 -22.16 L73.40 -21.53 L71.51 -21.08 L69.59 -20.82 L67.65 -20.75 L65.71 -20.87 L63.80 -21.18 L61.92 -21.67 L60.10 -22.35 L58.36 -23.20 L56.71 -24.22 L55.16 -25.39 L53.74 -26.71 L52.45 -28.17 L51.32 -29.74 L50.34 -31.42 L49.53 -33.18 L48.90 -35.01 L48.45 -36.90 L48.19 -38.82 L48.12 -40.76 L48.24 -42.70 L48.55 -44.61 L49.04 -46.49 L49.72 -48.31 L50.57 -50.05 L51.59 -51.70 L52.76 -53.25 L54.08 -54.67 L55.54 -55.96 L57.11 -57.09 L58.79 -58.07 L60.55 -58.88 L62.38 -59.51 L64.27 -59.96 L66.19 -60.22 L68.13 -60.29 L70.07 -60.17 L71.98 -59.86 L73.86 -59.37 L75.68 -58.69 L77.42 -57.84 L79.07 -56.82 L80.62 -55.65 L82.04 -54.33 L83.33 -52.87 L84.46 -51.30 L85.44 -49.62 L86.25 -47.86 L86.88 -46.03 L87.33 -44.14 L87.59 -42.22 Z M196.05 -41.76 L195.92 -44.00 L195.70 -45.97 L195.34 -48.18 L194.88 -50.27 L138.35 -50.27 L139.53 -52.10 L140.82 -53.71 L142.27 -55.17 L143.97 -56.54 L145.70 -57.66 L147.54 -58.59 L149.58 -59.37 L151.57 -59.89 L153.73 -60.21 L155.79 -60.29 L157.97 -60.14 L160.00 -59.78 L162.10 -59.17 L164.00 -58.39 L165.82 -57.41 L167.53 -56.25 L180.10 -72.75 L177.44 -74.62 L174.43 -76.37 L171.29 -77.86 L168.02 -79.07 L164.67 -80.00 L161.25 -80.64 L157.79 -80.98 L154.31 -81.02 L152.32 -80.91 L150.34 -80.70 L148.38 -80.40 L146.43 -80.00 L144.50 -79.51 L142.60 -78.92 L140.74 -78.23 L138.90 -77.46 L137.11 -76.60 L135.36 -75.65 L133.66 -74.62 L132.02 -73.50 L130.43 -72.31 L128.90 -71.04 L127.43 -69.69 L126.03 -68.28 L124.71 -66.80 L123.45 -65.25 L122.28 -63.65 L121.18 -61.99 L120.17 -60.28 L119.25 -58.52 L118.41 -56.71 L117.66 -54.87 L117.00 -52.99 L116.43 -51.09 L115.96 -49.16 L115.58 -47.20 L115.31 -45.23 L115.12 -43.25 L115.04 -41.27 L115.05 -39.28 L115.18 -37.04 L115.40 -35.07 L115.76 -32.86 L116.22 -30.77 L172.75 -30.77 L171.57 -28.94 L170.28 -27.33 L168.83 -25.87 L167.13 -24.50 L165.40 -23.38 L163.56 -22.45 L161.64 -21.71 L159.53 -21.15 L157.37 -20.83 L155.31 -20.75 L153.13 -20.90 L151.10 -21.26 L149.12 -21.83 L147.10 -22.65 L145.28 -23.63 L143.57 -24.79 L131.00 -8.29 L133.66 -6.42 L136.67 -4.67 L139.81 -3.18 L143.08 -1.97 L146.43 -1.04 L149.85 -0.40 L153.31 -0.06 L156.79 -0.02 L158.78 -0.13 L160.76 -0.34 L162.72 -0.64 L164.67 -1.04 L166.60 -1.53 L168.50 -2.12 L170.36 -2.81 L172.20 -3.58 L173.99 -4.44 L175.74 -5.39 L177.44 -6.42 L179.08 -7.54 L180.67 -8.73 L182.20 -10.00 L183.67 -11.35 L185.07 -12.76 L186.39 -14.24 L187.65 -15.79 L188.82 -17.39 L189.92 -19.05 L190.93 -20.76 L191.85 -22.52 L192.69 -24.33 L193.44 -26.17 L194.10 -28.05 L194.67 -29.95 L195.14 -31.88 L195.52 -33.84 L195.79 -35.81 L195.98 -37.79 L196.06 -39.77 Z M283.73 -41.02 L283.65 -43.00 L283.48 -44.99 L283.22 -46.96 L282.85 -48.91 L282.39 -50.85 L281.84 -52.76 L281.19 -54.64 L280.45 -56.48 L279.62 -58.29 L278.71 -60.06 L277.71 -61.78 L276.62 -63.44 L275.46 -65.06 L274.21 -66.61 L272.90 -68.10 L271.51 -69.52 L270.05 -70.88 L268.53 -72.16 L266.95 -73.36 L265.31 -74.48 L263.61 -75.53 L261.87 -76.49 L260.08 -77.36 L258.26 -78.14 L256.39 -78.84 L254.50 -79.44 L252.57 -79.94 L250.63 -80.36 L248.66 -80.67 L246.69 -80.89 L244.70 -81.01 L242.71 -81.04 L240.73 -80.96 L238.74 -80.79 L236.77 -80.53 L234.82 -80.16 L232.88 -79.70 L230.97 -79.15 L229.09 -78.50 L227.25 -77.76 L225.44 -76.93 L223.67 -76.02 L221.95 -75.02 L220.29 -73.93 L218.67 -72.77 L217.12 -71.52 L215.63 -70.21 L214.21 -68.82 L212.85 -67.36 L211.57 -65.84 L210.37 -64.26 L209.25 -62.62 L208.20 -60.92 L207.24 -59.18 L206.37 -57.39 L205.59 -55.57 L204.89 -53.70 L204.29 -51.81 L203.79 -49.88 L203.37 -47.94 L203.06 -45.97 L202.84 -44.00 L202.72 -42.01 L202.69 -40.02 L202.82 -37.29 L203.13 -34.57 L203.62 -31.88 L204.29 -29.23 L205.14 -26.64 L206.27 -23.87 L207.47 -21.42 L208.84 -19.05 L210.37 -16.78 L212.05 -14.62 L213.86 -12.58 L216.00 -10.50 L218.09 -8.73 L220.49 -6.97 L222.81 -5.51 L225.21 -4.22 L227.47 -3.18 L229.79 -2.29 L232.16 -1.53 L234.57 -0.93 L236.77 -0.51 L239.24 -0.20 L241.72 -0.03 L244.20 -0.01 L246.69 -0.15 L249.16 -0.44 L251.60 -0.88 L254.02 -1.47 L256.39 -2.20 L258.72 -3.08 L260.98 -4.11 L262.98 -5.15 L262.98 0.00 L283.73 0.00 Z M262.98 -40.28 L262.86 -38.34 L262.55 -36.43 L262.06 -34.55 L261.38 -32.73 L260.53 -30.99 L259.51 -29.34 L258.34 -27.79 L257.02 -26.37 L255.56 -25.08 L253.99 -23.95 L252.31 -22.97 L250.55 -22.16 L248.72 -21.53 L246.83 -21.08 L244.91 -20.82 L242.97 -20.75 L241.03 -20.87 L239.12 -21.18 L237.24 -21.67 L235.42 -22.35 L233.68 -23.20 L232.03 -24.22 L230.48 -25.39 L229.06 -26.71 L227.77 -28.17 L226.64 -29.74 L225.66 -31.42 L224.85 -33.18 L224.22 -35.01 L223.77 -36.90 L223.51 -38.82 L223.44 -40.76 L223.56 -42.70 L223.87 -44.61 L224.36 -46.49 L225.04 -48.31 L225.89 -50.05 L226.91 -51.70 L228.08 -53.25 L229.40 -54.67 L230.86 -55.96 L232.43 -57.09 L234.11 -58.07 L235.87 -58.88 L237.70 -59.51 L239.59 -59.96 L241.51 -60.22 L243.45 -60.29 L245.39 -60.17 L247.30 -59.86 L249.18 -59.37 L251.00 -58.69 L252.74 -57.84 L254.39 -56.82 L255.94 -55.65 L257.36 -54.33 L258.65 -52.87 L259.78 -51.30 L260.76 -49.62 L261.57 -47.86 L262.20 -46.03 L262.65 -44.14 L262.91 -42.22 Z"/>
+</svg></a>
+  <nav class="nav" aria-label="Principal" data-i18n-aria="a.nav"><a href="#servicios"><span data-i18n="nav.serv">Servicios</span></a><a href="#proceso"><span data-i18n="nav.proc">Cómo trabajamos</span></a><a href="#enfoque"><span data-i18n="nav.enf">Enfoque</span></a><a href="#contacto"><span data-i18n="nav.cont">Contacto</span></a></nav>
+  <div class="lang" role="group" aria-label="Idioma" data-i18n-aria="a.lang"><button type="button" data-l="es" aria-pressed="true">ES</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
+  <a class="btn btn-p" href="#contacto"><span data-i18n="nav.cta">Conversemos</span></a>
+</div></header>
+<main id="inicio">
+  <section class="hero">
+    <div class="hero-t">
+      <div class="k"><span data-i18n="hero.k">Investments Platform</span></div>
+      <h1 class="h" data-i18n-2="hero.h">La estructura detrás de <b>cada gran inversión.</b></h1>
+      <p class="lead"><span data-i18n="hero.p">Diseñamos estructuras financieras y jurídicas, impulsamos el desarrollo de negocios y acompañamos cada decisión con consultoría especializada.</span></p>
+      <div class="ctas"><a class="btn btn-p" href="#contacto"><span data-i18n="hero.c1">Conversemos</span></a><a class="btn btn-s" href="#servicios"><span data-i18n="hero.c2">Ver servicios</span></a></div>
+      <ul class="tags"><li><span data-i18n="tag1">Estructuras financieras</span></li><li><span data-i18n="tag2">Estructuras jurídicas</span></li><li><span data-i18n="tag3">Desarrollo de negocios</span></li><li><span data-i18n="tag4">Consultoría</span></li></ul>
+    </div>
+    <div class="hero-v">
+      <div class="hv">
+        <figure class="hv-ph"><img src="img/reunion.webp" width="1500" height="1200" fetchpriority="high" alt="Socios cerrando una reunión con un apretón de manos en una oficina luminosa" data-i18n-alt="alt.reu"></figure>
+        <div class="badge-ip" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0.0 -81.0 108.4 81.0">
+<path fill="#2FBF8A" d="M20.75 -70.67 L20.70 -71.68 L20.55 -72.69 L20.30 -73.68 L19.96 -74.64 L19.52 -75.56 L19.00 -76.43 L18.39 -77.25 L17.71 -78.00 L16.96 -78.68 L16.14 -79.29 L15.27 -79.81 L14.35 -80.25 L13.39 -80.59 L12.40 -80.84 L11.39 -80.99 L10.38 -81.04 L9.36 -80.99 L8.35 -80.84 L7.36 -80.59 L6.40 -80.25 L5.48 -79.81 L4.61 -79.29 L3.79 -78.68 L3.04 -78.00 L2.36 -77.25 L1.75 -76.43 L1.23 -75.56 L0.79 -74.64 L0.45 -73.68 L0.20 -72.69 L0.05 -71.68 L0.00 -70.67 L0.05 -69.65 L0.20 -68.64 L0.45 -67.65 L0.79 -66.69 L1.23 -65.77 L1.75 -64.90 L2.36 -64.08 L3.04 -63.33 L3.79 -62.65 L4.61 -62.04 L5.48 -61.52 L6.40 -61.08 L7.36 -60.74 L8.35 -60.49 L9.36 -60.34 L10.37 -60.29 L11.39 -60.34 L12.40 -60.49 L13.39 -60.74 L14.35 -61.08 L15.27 -61.52 L16.14 -62.04 L16.96 -62.65 L17.71 -63.33 L18.39 -64.08 L19.00 -64.90 L19.52 -65.77 L19.96 -66.69 L20.30 -67.65 L20.55 -68.64 L20.70 -69.65 Z"/>
+<path fill="#FFFFFF" d="M20.75 -53.67 L20.75 0.00 L0.00 0.00 L0.00 -53.67 Z M108.41 -41.02 L108.28 -43.75 L108.01 -46.22 L107.58 -48.67 L106.94 -51.33 L106.21 -53.70 L105.33 -56.03 L104.19 -58.52 L103.02 -60.71 L101.72 -62.82 L100.29 -64.86 L98.73 -66.80 L96.89 -68.82 L94.92 -70.71 L93.01 -72.31 L91.02 -73.79 L88.93 -75.15 L86.77 -76.37 L84.54 -77.46 L82.01 -78.50 L79.65 -79.30 L77.25 -79.94 L74.57 -80.49 L72.11 -80.82 L69.63 -81.00 L67.14 -81.03 L64.66 -80.91 L61.94 -80.60 L59.50 -80.16 L56.84 -79.51 L54.47 -78.75 L51.93 -77.76 L49.67 -76.71 L47.92 -75.78 L46.00 -74.62 L44.15 -73.36 L42.57 -72.16 L41.05 -70.88 L39.59 -69.52 L38.20 -68.10 L36.73 -66.42 L35.34 -64.66 L34.20 -63.03 L33.13 -61.35 L32.15 -59.62 L31.15 -57.62 L30.36 -55.80 L29.57 -53.70 L28.97 -51.81 L28.35 -49.40 L27.88 -46.96 L27.54 -44.24 L27.39 -41.76 L27.37 0.00 L48.12 0.00 L48.12 -5.15 L50.12 -4.11 L52.38 -3.08 L54.71 -2.20 L57.08 -1.47 L59.50 -0.88 L61.94 -0.44 L64.41 -0.15 L66.90 -0.01 L69.38 -0.03 L71.86 -0.20 L74.33 -0.51 L76.77 -0.98 L79.18 -1.60 L81.54 -2.37 L83.85 -3.28 L86.11 -4.33 L88.72 -5.76 L91.02 -7.25 L93.40 -9.04 L95.47 -10.83 L97.41 -12.76 L99.21 -14.81 L101.02 -17.19 L102.52 -19.48 L103.86 -21.86 L105.03 -24.33 L106.04 -26.87 L106.94 -29.71 L107.58 -32.37 L108.07 -35.31 L108.35 -38.28 Z M87.66 -40.28 L87.54 -38.34 L87.23 -36.43 L86.74 -34.55 L86.06 -32.73 L85.21 -30.99 L84.19 -29.34 L83.02 -27.79 L81.70 -26.37 L80.24 -25.08 L78.67 -23.95 L76.99 -22.97 L75.23 -22.16 L73.40 -21.53 L71.51 -21.08 L69.59 -20.82 L67.65 -20.75 L65.71 -20.87 L63.80 -21.18 L61.92 -21.67 L60.10 -22.35 L58.36 -23.20 L56.71 -24.22 L55.16 -25.39 L53.74 -26.71 L52.45 -28.17 L51.32 -29.74 L50.34 -31.42 L49.53 -33.18 L48.90 -35.01 L48.45 -36.90 L48.19 -38.82 L48.12 -40.76 L48.24 -42.70 L48.55 -44.61 L49.04 -46.49 L49.72 -48.31 L50.57 -50.05 L51.59 -51.70 L52.76 -53.25 L54.08 -54.67 L55.54 -55.96 L57.11 -57.09 L58.79 -58.07 L60.55 -58.88 L62.38 -59.51 L64.27 -59.96 L66.19 -60.22 L68.13 -60.29 L70.07 -60.17 L71.98 -59.86 L73.86 -59.37 L75.68 -58.69 L77.42 -57.84 L79.07 -56.82 L80.62 -55.65 L82.04 -54.33 L83.33 -52.87 L84.46 -51.30 L85.44 -49.62 L86.25 -47.86 L86.88 -46.03 L87.33 -44.14 L87.59 -42.22 Z"/>
+</svg></div>
+        <div class="hcard" aria-hidden="true"><svg class="mchart" viewBox="0 -12 210 124" aria-hidden="true"><path d="M2 106.5H208" stroke="#E7E2D9" stroke-width="1"/><rect class="bar" x="14.6" y="72.6" width="32.8" height="33.4" rx="2" fill="#FFFFFF" stroke="#1E2220" stroke-width="1.2"/><rect class="bar" x="62.6" y="54.6" width="32.8" height="51.4" rx="2" fill="#FFFFFF" stroke="#1E2220" stroke-width="1.2"/><rect class="bar" x="110.6" y="34.6" width="32.8" height="71.4" rx="2" fill="#FFFFFF" stroke="#1E2220" stroke-width="1.2"/><rect class="bar" x="158" y="10" width="34" height="96" rx="2" fill="#0E8A63"/><polyline class="trend" points="31,60 79,42 127,22 175,-2" fill="none" stroke="#1E2220" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" pathLength="1"/><circle cx="175" cy="-2" r="4.5" fill="#0E8A63" stroke="#fff" stroke-width="2"/></svg><b><span data-i18n="hc.t">Estructura a la medida</span></b><small><span data-i18n="hc.s">Diagnóstico · Diseño · Ejecución</span></small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec serv" id="servicios"><div class="wrap">
+    <div class="sh rv"><div><div class="k"><span data-i18n="serv.k">Servicios</span></div><h2 class="h" data-i18n-2="serv.h">Cuatro frentes, <b>una sola plataforma.</b></h2></div><p class="lead"><span data-i18n="serv.p">Cada proyecto recibe la combinación exacta que necesita.</span></p></div>
+    <div class="serv-g"><div class="rv"><svg class="rad" viewBox="0 0 400 400" role="img" aria-label="Servicios de IPSA" data-i18n-aria="a.rad"><circle class="rad-o" cx="200" cy="200" r="198"/><g class="seg" data-k="0" style="--dx:4.9px;--dy:-4.9px"><path class="sg" d="M206.6 10.1 A190 190 0 0 1 389.9 193.4 L319.9 195.8 A120 120 0 0 0 204.2 80.1Z"/><g class="si" transform="translate(292.6 73.4) scale(1.42)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M7 16.5v-3.5M12 16.5V9.5M17 16.5V5.5"/><path d="M14.5 5.5H17V8"/></g><text class="sn" x="349.9" y="54.1" text-anchor="middle">01</text></g><g class="seg" data-k="1" style="--dx:4.9px;--dy:4.9px"><path class="sg" d="M389.9 206.6 A190 190 0 0 1 206.6 389.9 L204.2 319.9 A120 120 0 0 0 319.9 204.2Z"/><g class="si" transform="translate(292.6 292.6) scale(1.42)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9 12 4.5 20.5 9"/><path d="M5.5 9.5v8M10 9.5v8M14 9.5v8M18.5 9.5v8"/><path d="M3.5 20h17"/></g><text class="sn" x="349.9" y="353.9" text-anchor="middle">02</text></g><g class="seg" data-k="2" style="--dx:-4.9px;--dy:4.9px"><path class="sg" d="M193.4 389.9 A190 190 0 0 1 10.1 206.6 L80.1 204.2 A120 120 0 0 0 195.8 319.9Z"/><g class="si" transform="translate(73.4 292.6) scale(1.42)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="5"/><circle cx="15" cy="12" r="5"/></g><text class="sn" x="50.1" y="353.9" text-anchor="middle">03</text></g><g class="seg" data-k="3" style="--dx:-4.9px;--dy:-4.9px"><path class="sg" d="M10.1 193.4 A190 190 0 0 1 193.4 10.1 L195.8 80.1 A120 120 0 0 0 80.1 195.8Z"/><g class="si" transform="translate(73.4 73.4) scale(1.42)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></g><text class="sn" x="50.1" y="54.1" text-anchor="middle">04</text></g><circle class="rad-i" cx="200" cy="200" r="102"/><svg x="158.0" y="156.6" width="84" height="62.8" viewBox="0.0 -81.0 108.4 81.0">
+<path fill="#0E8A63" d="M20.75 -70.67 L20.70 -71.68 L20.55 -72.69 L20.30 -73.68 L19.96 -74.64 L19.52 -75.56 L19.00 -76.43 L18.39 -77.25 L17.71 -78.00 L16.96 -78.68 L16.14 -79.29 L15.27 -79.81 L14.35 -80.25 L13.39 -80.59 L12.40 -80.84 L11.39 -80.99 L10.38 -81.04 L9.36 -80.99 L8.35 -80.84 L7.36 -80.59 L6.40 -80.25 L5.48 -79.81 L4.61 -79.29 L3.79 -78.68 L3.04 -78.00 L2.36 -77.25 L1.75 -76.43 L1.23 -75.56 L0.79 -74.64 L0.45 -73.68 L0.20 -72.69 L0.05 -71.68 L0.00 -70.67 L0.05 -69.65 L0.20 -68.64 L0.45 -67.65 L0.79 -66.69 L1.23 -65.77 L1.75 -64.90 L2.36 -64.08 L3.04 -63.33 L3.79 -62.65 L4.61 -62.04 L5.48 -61.52 L6.40 -61.08 L7.36 -60.74 L8.35 -60.49 L9.36 -60.34 L10.37 -60.29 L11.39 -60.34 L12.40 -60.49 L13.39 -60.74 L14.35 -61.08 L15.27 -61.52 L16.14 -62.04 L16.96 -62.65 L17.71 -63.33 L18.39 -64.08 L19.00 -64.90 L19.52 -65.77 L19.96 -66.69 L20.30 -67.65 L20.55 -68.64 L20.70 -69.65 Z"/>
+<path fill="#1E2220" d="M20.75 -53.67 L20.75 0.00 L0.00 0.00 L0.00 -53.67 Z M108.41 -41.02 L108.28 -43.75 L108.01 -46.22 L107.58 -48.67 L106.94 -51.33 L106.21 -53.70 L105.33 -56.03 L104.19 -58.52 L103.02 -60.71 L101.72 -62.82 L100.29 -64.86 L98.73 -66.80 L96.89 -68.82 L94.92 -70.71 L93.01 -72.31 L91.02 -73.79 L88.93 -75.15 L86.77 -76.37 L84.54 -77.46 L82.01 -78.50 L79.65 -79.30 L77.25 -79.94 L74.57 -80.49 L72.11 -80.82 L69.63 -81.00 L67.14 -81.03 L64.66 -80.91 L61.94 -80.60 L59.50 -80.16 L56.84 -79.51 L54.47 -78.75 L51.93 -77.76 L49.67 -76.71 L47.92 -75.78 L46.00 -74.62 L44.15 -73.36 L42.57 -72.16 L41.05 -70.88 L39.59 -69.52 L38.20 -68.10 L36.73 -66.42 L35.34 -64.66 L34.20 -63.03 L33.13 -61.35 L32.15 -59.62 L31.15 -57.62 L30.36 -55.80 L29.57 -53.70 L28.97 -51.81 L28.35 -49.40 L27.88 -46.96 L27.54 -44.24 L27.39 -41.76 L27.37 0.00 L48.12 0.00 L48.12 -5.15 L50.12 -4.11 L52.38 -3.08 L54.71 -2.20 L57.08 -1.47 L59.50 -0.88 L61.94 -0.44 L64.41 -0.15 L66.90 -0.01 L69.38 -0.03 L71.86 -0.20 L74.33 -0.51 L76.77 -0.98 L79.18 -1.60 L81.54 -2.37 L83.85 -3.28 L86.11 -4.33 L88.72 -5.76 L91.02 -7.25 L93.40 -9.04 L95.47 -10.83 L97.41 -12.76 L99.21 -14.81 L101.02 -17.19 L102.52 -19.48 L103.86 -21.86 L105.03 -24.33 L106.04 -26.87 L106.94 -29.71 L107.58 -32.37 L108.07 -35.31 L108.35 -38.28 Z M87.66 -40.28 L87.54 -38.34 L87.23 -36.43 L86.74 -34.55 L86.06 -32.73 L85.21 -30.99 L84.19 -29.34 L83.02 -27.79 L81.70 -26.37 L80.24 -25.08 L78.67 -23.95 L76.99 -22.97 L75.23 -22.16 L73.40 -21.53 L71.51 -21.08 L69.59 -20.82 L67.65 -20.75 L65.71 -20.87 L63.80 -21.18 L61.92 -21.67 L60.10 -22.35 L58.36 -23.20 L56.71 -24.22 L55.16 -25.39 L53.74 -26.71 L52.45 -28.17 L51.32 -29.74 L50.34 -31.42 L49.53 -33.18 L48.90 -35.01 L48.45 -36.90 L48.19 -38.82 L48.12 -40.76 L48.24 -42.70 L48.55 -44.61 L49.04 -46.49 L49.72 -48.31 L50.57 -50.05 L51.59 -51.70 L52.76 -53.25 L54.08 -54.67 L55.54 -55.96 L57.11 -57.09 L58.79 -58.07 L60.55 -58.88 L62.38 -59.51 L64.27 -59.96 L66.19 -60.22 L68.13 -60.29 L70.07 -60.17 L71.98 -59.86 L73.86 -59.37 L75.68 -58.69 L77.42 -57.84 L79.07 -56.82 L80.62 -55.65 L82.04 -54.33 L83.33 -52.87 L84.46 -51.30 L85.44 -49.62 L86.25 -47.86 L86.88 -46.03 L87.33 -44.14 L87.59 -42.22 Z"/>
+</svg><text x="200" y="244" text-anchor="middle" class="rad-c" data-i18n="rad.c">Visión integral</text></svg></div><div class="svs"><article class="sv" data-k="0" tabindex="0"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M7 16.5v-3.5M12 16.5V9.5M17 16.5V5.5"/><path d="M14.5 5.5H17V8"/></svg><h3><span data-i18n="s1.t">Estructuras financieras</span></h3><p><span data-i18n="s1.p">Su capital, bien organizado.</span></p><ul><li><span data-i18n="s1.b1">Modelos y esquemas de inversión</span></li><li><span data-i18n="s1.b2">Opciones de financiamiento</span></li><li><span data-i18n="s1.b3">Proyecciones y escenarios</span></li></ul></article><article class="sv" data-k="1" tabindex="0"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 9 12 4.5 20.5 9"/><path d="M5.5 9.5v8M10 9.5v8M14 9.5v8M18.5 9.5v8"/><path d="M3.5 20h17"/></svg><h3><span data-i18n="s2.t">Estructuras jurídicas</span></h3><p><span data-i18n="s2.p">El vehículo correcto para cada proyecto.</span></p><ul><li><span data-i18n="s2.b1">Sociedades y holdings</span></li><li><span data-i18n="s2.b2">Fideicomisos y vehículos de inversión</span></li><li><span data-i18n="s2.b3">Acuerdos entre socios</span></li></ul></article><article class="sv" data-k="2" tabindex="0"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="12" r="5"/><circle cx="15" cy="12" r="5"/></svg><h3><span data-i18n="s3.t">Desarrollo de negocios</span></h3><p><span data-i18n="s3.p">Proyectos conectados con capital y aliados.</span></p><ul><li><span data-i18n="s3.b1">Búsqueda de socios e inversionistas</span></li><li><span data-i18n="s3.b2">Alianzas estratégicas</span></li><li><span data-i18n="s3.b3">Expansión a nuevos mercados</span></li></ul></article><article class="sv" data-k="3" tabindex="0"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg><h3><span data-i18n="s4.t">Consultoría</span></h3><p><span data-i18n="s4.p">Criterio experto en cada decisión.</span></p><ul><li><span data-i18n="s4.b1">Diagnóstico y estrategia</span></li><li><span data-i18n="s4.b2">Evaluación de oportunidades</span></li><li><span data-i18n="s4.b3">Acompañamiento continuo</span></li></ul></article></div></div>
+  </div></section>
+
+  <section class="sec flow-band" id="recorrido"><div class="wrap">
+    <div class="sh rv"><div><div class="k"><span data-i18n="flu.k">El recorrido de su capital</span></div><h2 class="h" data-i18n-2="flu.h">De la idea al crecimiento, <b>en cinco pasos.</b></h2></div></div>
+    <div class="flow-w rv"><div class="run" aria-hidden="true"><i></i><i></i><i></i></div><ol class="flow"><li><div class="ci"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6.5" rx="7" ry="2.8"/><path d="M5 6.5v5c0 1.6 3.1 2.8 7 2.8s7-1.2 7-2.8v-5"/><path d="M5 11.5v5c0 1.6 3.1 2.8 7 2.8s7-1.2 7-2.8v-5"/></svg></div><div><h3><span data-i18n="f1.t">Su capital</span></h3><p><span data-i18n="f1.p">Metas, socios y horizonte</span></p></div></li><li><div class="ci"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 9 12 4.5 20.5 9"/><path d="M5.5 9.5v8M10 9.5v8M14 9.5v8M18.5 9.5v8"/><path d="M3.5 20h17"/></svg></div><div><h3><span data-i18n="f2.t">Estructura jurídica</span></h3><p><span data-i18n="f2.p">Sociedad, fideicomiso o vehículo</span></p></div></li><li><div class="ci"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M7 16.5v-3.5M12 16.5V9.5M17 16.5V5.5"/><path d="M14.5 5.5H17V8"/></svg></div><div><h3><span data-i18n="f3.t">Estructura financiera</span></h3><p><span data-i18n="f3.p">Financiamiento y escenarios</span></p></div></li><li><div class="ci"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V9.5L12 4l8 5.5V20"/><path d="M9.5 20v-6h5v6"/><path d="M3 20h18"/></svg></div><div><h3><span data-i18n="f4.t">Proyecto o negocio</span></h3><p><span data-i18n="f4.p">Ejecución con aliados</span></p></div></li><li><div class="ci"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 17 9 11.5l4 4 7.5-7.5"/><path d="M15 8h5.5v5.5"/></svg></div><div><h3><span data-i18n="f5.t">Crecimiento</span></h3><p><span data-i18n="f5.p">Revisión y nuevas etapas</span></p></div></li></ol></div>
+  </div></section>
+
+  <section class="sec" id="clientes"><div class="wrap">
+    <div class="sh rv"><div><div class="k"><span data-i18n="pq.k">Para quién trabajamos</span></div><h2 class="h" data-i18n-2="pq.h">Personas y empresas <b>con visión de largo plazo.</b></h2></div></div>
+    <div class="who"><article class="wc rv"><figure><img src="img/inversionista.webp" width="900" height="1125" loading="lazy" decoding="async" alt="Inversionista mirando la ciudad desde una terraza" data-i18n-alt="alt.q1"></figure><h3><span data-i18n="q1.t">Inversionistas</span></h3><p><span data-i18n="q1.p">Un portafolio con orden y criterio.</span></p></article><article class="wc rv"><figure><img src="img/desarrollador.webp" width="900" height="1125" loading="lazy" decoding="async" alt="Equipo revisando la maqueta de un proyecto" data-i18n-alt="alt.q2"></figure><h3><span data-i18n="q2.t">Desarrolladores</span></h3><p><span data-i18n="q2.p">Proyectos estructurados para atraer inversión.</span></p></article><article class="wc rv"><figure><img src="img/familia.webp" width="900" height="1125" loading="lazy" decoding="async" alt="Dos generaciones de una empresa revisando su plan de negocio" data-i18n-alt="alt.q3"></figure><h3><span data-i18n="q3.t">Empresas familiares</span></h3><p><span data-i18n="q3.p">Orden y continuidad entre generaciones.</span></p></article><article class="wc rv"><figure><img src="img/emprendedora.webp" width="900" height="1125" loading="lazy" decoding="async" alt="Emprendedora junto a la ventana de su oficina" data-i18n-alt="alt.q4"></figure><h3><span data-i18n="q4.t">Emprendedores</span></h3><p><span data-i18n="q4.p">Bases sólidas para escalar su negocio.</span></p></article></div>
+  </div></section>
+
+  <section class="sec" id="estructura"><div class="wrap est-g">
+    <div class="rv"><div class="k"><span data-i18n="est.k">Diseño de estructuras</span></div><h2 class="h" data-i18n-2="est.h">La anatomía de <b>una buena estructura.</b></h2><p class="lead"><span data-i18n="est.p">Cada pieza cumple una función precisa dentro del conjunto.</span></p>
+      <ul class="dots"><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span data-i18n="est.b1">Cada activo en su lugar</span></li><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span data-i18n="est.b2">Socios con reglas claras</span></li><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span data-i18n="est.b3">Una base lista para recibir inversión</span></li></ul></div>
+    <div class="dg"><svg class="dg-svg dg-h" viewBox="0 0 680 470" role="img" aria-label="Diagrama de una estructura" data-i18n-aria="a.dg"><path class="ln" d="M340 76 V122" pathLength="1"/><path class="ln" d="M340 196 V232 M115 232 H565 M115 232 V262 M340 232 V262 M565 232 V262" pathLength="1"/><path class="ln" d="M115 326 V362 M340 326 V362 M565 326 V362 M115 362 H565 M340 362 V394" pathLength="1"/><circle class="pulse" cx="340" cy="99" r="4.5"/><circle class="pulse p2" cx="340" cy="214" r="4.5"/><circle class="pulse p3" cx="340" cy="378" r="4.5"/><g class="nd n-w"><rect x="240" y="12" width="200" height="64" rx="6"/><text x="340.0" y="50.0" class="t1" data-i18n="d.inv">Inversionistas</text></g><g class="nd n-g"><rect x="220" y="122" width="240" height="74" rx="6"/><text x="340.0" y="156.0" class="t1" data-i18n="d.hold">Holding</text><text x="340.0" y="176.0" class="t2" data-i18n="d.hold2">Diseño IPSA</text></g><g class="nd n-o"><rect x="20" y="262" width="190" height="64" rx="6"/><text x="115.0" y="300.0" class="t1" data-i18n="d.op">Sociedad operativa</text></g><g class="nd n-o"><rect x="245" y="262" width="190" height="64" rx="6"/><text x="340.0" y="300.0" class="t1" data-i18n="d.fid">Fideicomiso</text></g><g class="nd n-o"><rect x="470" y="262" width="190" height="64" rx="6"/><text x="565.0" y="300.0" class="t1" data-i18n="d.veh">Vehículo de inversión</text></g><g class="nd n-m"><rect x="220" y="394" width="240" height="64" rx="6"/><text x="340.0" y="432.0" class="t1" data-i18n="d.act">Proyectos y activos</text></g></svg><svg class="dg-svg dg-v" viewBox="0 0 340 516" role="img" aria-label="Diagrama de una estructura" data-i18n-aria="a.dg"><path class="ln" d="M180 66 V100" pathLength="1"/><path class="ln" d="M180 170 V190 H24 V480 H48" pathLength="1"/><path class="ln" d="M24 236 H60" pathLength="1"/><path class="ln" d="M24 314 H60" pathLength="1"/><path class="ln" d="M24 392 H60" pathLength="1"/><circle class="pulse" cx="180" cy="83" r="4.5"/><circle class="pulse p2" cx="24" cy="275" r="4.5"/><circle class="pulse p3" cx="24" cy="430" r="4.5"/><g class="nd n-w"><rect x="48" y="10" width="264" height="56" rx="6"/><text x="180.0" y="44.0" class="t1" data-i18n="d.inv">Inversionistas</text></g><g class="nd n-g"><rect x="48" y="100" width="264" height="70" rx="6"/><text x="180.0" y="132.0" class="t1" data-i18n="d.hold">Holding</text><text x="180.0" y="152.0" class="t2" data-i18n="d.hold2">Diseño IPSA</text></g><g class="nd n-o"><rect x="60" y="208" width="264" height="56" rx="6"/><text x="192.0" y="242.0" class="t1" data-i18n="d.op">Sociedad operativa</text></g><g class="nd n-o"><rect x="60" y="286" width="264" height="56" rx="6"/><text x="192.0" y="320.0" class="t1" data-i18n="d.fid">Fideicomiso</text></g><g class="nd n-o"><rect x="60" y="364" width="264" height="56" rx="6"/><text x="192.0" y="398.0" class="t1" data-i18n="d.veh">Vehículo de inversión</text></g><g class="nd n-m"><rect x="48" y="452" width="264" height="56" rx="6"/><text x="180.0" y="486.0" class="t1" data-i18n="d.act">Proyectos y activos</text></g></svg><p class="nota"><span data-i18n="d.nota">Ejemplo ilustrativo. Cada estructura se diseña según su proyecto.</span></p></div>
+  </div></section>
+
+  <section class="sec" id="proceso"><div class="wrap proc-g">
+    <figure class="foto"><img src="img/ejecutivo-ventanal.webp" width="1400" height="1750" loading="lazy" decoding="async" alt="Ejecutivo revisando su tableta junto a un ventanal" data-i18n-alt="alt.eje"></figure>
+    <div class="rv"><div class="k"><span data-i18n="proc.k">Cómo trabajamos</span></div><h2 class="h" data-i18n-2="proc.h">Un método claro, <b>paso a paso.</b></h2>
+    <ol class="steps"><li><div class="n">01</div><div><h3><span data-i18n="p1.t">Escuchamos</span></h3><p><span data-i18n="p1.p">Conocemos su proyecto, sus metas y su horizonte.</span></p></div></li><li><div class="n">02</div><div><h3><span data-i18n="p2.t">Diseñamos</span></h3><p><span data-i18n="p2.p">Definimos la estructura financiera y jurídica ideal.</span></p></div></li><li><div class="n">03</div><div><h3><span data-i18n="p3.t">Ejecutamos</span></h3><p><span data-i18n="p3.p">La ponemos en marcha con los aliados correctos.</span></p></div></li><li><div class="n">04</div><div><h3><span data-i18n="p4.t">Acompañamos</span></h3><p><span data-i18n="p4.p">Seguimos cada etapa de su inversión.</span></p></div></li></ol></div>
+  </div></section>
+
+  <section class="enf" id="enfoque">
+    <div class="enf-a"><div class="rv"><div class="k"><span data-i18n="enf.k">Nuestro enfoque</span></div><h2 class="h" data-i18n-2="enf.h">Principios que <b>nos definen.</b></h2><p class="lead"><span data-i18n="enf.p">Cuatro principios guían cada estructura que diseñamos.</span></p></div><p class="enf-q rv" data-i18n-2="enf.q">Primero entendemos, <b>luego estructuramos.</b></p></div>
+    <div class="enf-b">
+      <figure><img src="img/pareja-asesor.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="Asesor revisando un documento con una pareja en una sala luminosa" data-i18n-alt="alt.par"></figure>
+      <div class="vals rv"><div class="val"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 19.5 7.7v8.6L12 20.5l-7.5-4.2V7.7z"/><path d="M12 12l7.5-4.3M12 12v8.5M12 12 4.5 7.7"/></svg><div><h3><span data-i18n="e1.t">Sólida</span></h3><p><span data-i18n="e1.p">Estructuras pensadas para durar.</span></p></div></div><div class="val"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 6 12 6s9.5 6 9.5 6-3.5 6-9.5 6S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></svg><div><h3><span data-i18n="e2.t">Clara</span></h3><p><span data-i18n="e2.p">Cada paso explicado, cada cifra a la vista.</span></p></div></div><div class="val"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="12" r="5"/><circle cx="15" cy="12" r="5"/></svg><div><h3><span data-i18n="e3.t">Cercana</span></h3><p><span data-i18n="e3.p">Acompaña al cliente de principio a fin.</span></p></div></div><div class="val"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 17 9 11.5l4 4 7.5-7.5"/><path d="M15 8h5.5v5.5"/></svg><div><h3><span data-i18n="e4.t">Visionaria</span></h3><p><span data-i18n="e4.p">Decisiones de hoy pensadas para mañana.</span></p></div></div></div>
+    </div>
+  </section>
+
+  <section class="sec cta-b"><div class="wrap">
+    <div class="cta-g rv">
+      <div class="cta-st"><div class="k"><span data-i18n="cta.k">Consultoría</span></div><h2 class="h" data-i18n-2="cta.h">Decisiones con <b>respaldo experto.</b></h2><p class="lead"><span data-i18n="cta.p">Acompañamiento cercano, de la primera reunión a la puesta en marcha.</span></p><a class="btn btn-p" href="#contacto"><span data-i18n="hero.c1">Conversemos</span></a></div>
+      <figure class="cta-ph"><img src="img/socios-edificio.webp" width="1500" height="1200" loading="lazy" decoding="async" alt="Tres socios observan juntos un edificio de oficinas" data-i18n-alt="alt.soc"></figure>
+    </div>
+  </div></section>
+
+  <section class="sec cont" id="contacto" style="padding-top:0"><div class="wrap cont-g">
+    <div>
+      <div class="k"><span data-i18n="cont.k">Contacto</span></div>
+      <h2 class="h" data-i18n-2="cont.h">Conversemos sobre <b>su próxima inversión.</b></h2>
+      <p class="lead"><span data-i18n="cont.p">Cuéntenos su proyecto y agendamos una reunión.</span></p>
+      <ul class="dots"><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span data-i18n="cont.l1">Reunión para conocer su proyecto</span></li><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span data-i18n="cont.l2">Propuesta de estructura para su caso</span></li><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span data-i18n="cont.l3">Confidencialidad en cada conversación</span></li></ul>
+      <div class="datos" id="datos" hidden></div>
+    </div>
+    <form id="form" novalidate>
+      <div class="fld"><label for="nombre"><span data-i18n="f.nombre">Nombre</span></label><input id="nombre" name="nombre" autocomplete="name"></div>
+      <div class="fld"><label for="empresa"><span data-i18n="f.empresa">Empresa (opcional)</span></label><input id="empresa" name="empresa" autocomplete="organization"></div>
+      <div class="fld"><label for="correo"><span data-i18n="f.correo">Correo</span></label><input id="correo" name="correo" type="email" autocomplete="email"></div>
+      <div class="fld"><label for="tel"><span data-i18n="f.tel">Teléfono</span></label><input id="tel" name="tel" type="tel" autocomplete="tel"></div>
+      <div class="fld full"><label for="tema"><span data-i18n="f.tema">¿En qué podemos ayudarle?</span></label><select id="tema" name="tema"><option value="" data-i18n="f.o0">Elija una opción</option><option value="1" data-i18n="tag1">Estructuras financieras</option><option value="2" data-i18n="tag2">Estructuras jurídicas</option><option value="3" data-i18n="tag3">Desarrollo de negocios</option><option value="4" data-i18n="tag4">Consultoría</option><option value="5" data-i18n="f.o5">Otro tema</option></select></div>
+      <div class="fld full"><label for="mensaje"><span data-i18n="f.msg">Mensaje</span></label><textarea id="mensaje" name="mensaje"></textarea></div>
+      <button class="btn btn-p" type="submit"><span data-i18n="f.enviar">Enviar</span></button>
+      <div class="msg" id="msg" role="status" hidden></div>
+    </form>
+  </div></section>
+</main>
+<footer>
+  <div class="ft-a">
+    <a class="logo" href="#inicio" aria-label="IPSA, inicio" data-i18n-aria="a.home"><svg class="lg" role="img" aria-label="IPSA Investments Platform" xmlns="http://www.w3.org/2000/svg" viewBox="-5.7 -86.7 295.1 118.5">
+<path fill="#2FBF8A" d="M20.75 -70.67 L20.70 -71.68 L20.55 -72.69 L20.30 -73.68 L19.96 -74.64 L19.52 -75.56 L19.00 -76.43 L18.39 -77.25 L17.71 -78.00 L16.96 -78.68 L16.14 -79.29 L15.27 -79.81 L14.35 -80.25 L13.39 -80.59 L12.40 -80.84 L11.39 -80.99 L10.38 -81.04 L9.36 -80.99 L8.35 -80.84 L7.36 -80.59 L6.40 -80.25 L5.48 -79.81 L4.61 -79.29 L3.79 -78.68 L3.04 -78.00 L2.36 -77.25 L1.75 -76.43 L1.23 -75.56 L0.79 -74.64 L0.45 -73.68 L0.20 -72.69 L0.05 -71.68 L0.00 -70.67 L0.05 -69.65 L0.20 -68.64 L0.45 -67.65 L0.79 -66.69 L1.23 -65.77 L1.75 -64.90 L2.36 -64.08 L3.04 -63.33 L3.79 -62.65 L4.61 -62.04 L5.48 -61.52 L6.40 -61.08 L7.36 -60.74 L8.35 -60.49 L9.36 -60.34 L10.37 -60.29 L11.39 -60.34 L12.40 -60.49 L13.39 -60.74 L14.35 -61.08 L15.27 -61.52 L16.14 -62.04 L16.96 -62.65 L17.71 -63.33 L18.39 -64.08 L19.00 -64.90 L19.52 -65.77 L19.96 -66.69 L20.30 -67.65 L20.55 -68.64 L20.70 -69.65 Z"/>
+<path fill="#FFFFFF" d="M20.75 -53.67 L20.75 0.00 L0.00 0.00 L0.00 -53.67 Z M108.41 -41.02 L108.28 -43.75 L108.01 -46.22 L107.58 -48.67 L106.94 -51.33 L106.21 -53.70 L105.33 -56.03 L104.19 -58.52 L103.02 -60.71 L101.72 -62.82 L100.29 -64.86 L98.73 -66.80 L96.89 -68.82 L94.92 -70.71 L93.01 -72.31 L91.02 -73.79 L88.93 -75.15 L86.77 -76.37 L84.54 -77.46 L82.01 -78.50 L79.65 -79.30 L77.25 -79.94 L74.57 -80.49 L72.11 -80.82 L69.63 -81.00 L67.14 -81.03 L64.66 -80.91 L61.94 -80.60 L59.50 -80.16 L56.84 -79.51 L54.47 -78.75 L51.93 -77.76 L49.67 -76.71 L47.92 -75.78 L46.00 -74.62 L44.15 -73.36 L42.57 -72.16 L41.05 -70.88 L39.59 -69.52 L38.20 -68.10 L36.73 -66.42 L35.34 -64.66 L34.20 -63.03 L33.13 -61.35 L32.15 -59.62 L31.15 -57.62 L30.36 -55.80 L29.57 -53.70 L28.97 -51.81 L28.35 -49.40 L27.88 -46.96 L27.54 -44.24 L27.39 -41.76 L27.37 0.00 L48.12 0.00 L48.12 -5.15 L50.12 -4.11 L52.38 -3.08 L54.71 -2.20 L57.08 -1.47 L59.50 -0.88 L61.94 -0.44 L64.41 -0.15 L66.90 -0.01 L69.38 -0.03 L71.86 -0.20 L74.33 -0.51 L76.77 -0.98 L79.18 -1.60 L81.54 -2.37 L83.85 -3.28 L86.11 -4.33 L88.72 -5.76 L91.02 -7.25 L93.40 -9.04 L95.47 -10.83 L97.41 -12.76 L99.21 -14.81 L101.02 -17.19 L102.52 -19.48 L103.86 -21.86 L105.03 -24.33 L106.04 -26.87 L106.94 -29.71 L107.58 -32.37 L108.07 -35.31 L108.35 -38.28 Z M87.66 -40.28 L87.54 -38.34 L87.23 -36.43 L86.74 -34.55 L86.06 -32.73 L85.21 -30.99 L84.19 -29.34 L83.02 -27.79 L81.70 -26.37 L80.24 -25.08 L78.67 -23.95 L76.99 -22.97 L75.23 -22.16 L73.40 -21.53 L71.51 -21.08 L69.59 -20.82 L67.65 -20.75 L65.71 -20.87 L63.80 -21.18 L61.92 -21.67 L60.10 -22.35 L58.36 -23.20 L56.71 -24.22 L55.16 -25.39 L53.74 -26.71 L52.45 -28.17 L51.32 -29.74 L50.34 -31.42 L49.53 -33.18 L48.90 -35.01 L48.45 -36.90 L48.19 -38.82 L48.12 -40.76 L48.24 -42.70 L48.55 -44.61 L49.04 -46.49 L49.72 -48.31 L50.57 -50.05 L51.59 -51.70 L52.76 -53.25 L54.08 -54.67 L55.54 -55.96 L57.11 -57.09 L58.79 -58.07 L60.55 -58.88 L62.38 -59.51 L64.27 -59.96 L66.19 -60.22 L68.13 -60.29 L70.07 -60.17 L71.98 -59.86 L73.86 -59.37 L75.68 -58.69 L77.42 -57.84 L79.07 -56.82 L80.62 -55.65 L82.04 -54.33 L83.33 -52.87 L84.46 -51.30 L85.44 -49.62 L86.25 -47.86 L86.88 -46.03 L87.33 -44.14 L87.59 -42.22 Z M196.05 -41.76 L195.92 -44.00 L195.70 -45.97 L195.34 -48.18 L194.88 -50.27 L138.35 -50.27 L139.53 -52.10 L140.82 -53.71 L142.27 -55.17 L143.97 -56.54 L145.70 -57.66 L147.54 -58.59 L149.58 -59.37 L151.57 -59.89 L153.73 -60.21 L155.79 -60.29 L157.97 -60.14 L160.00 -59.78 L162.10 -59.17 L164.00 -58.39 L165.82 -57.41 L167.53 -56.25 L180.10 -72.75 L177.44 -74.62 L174.43 -76.37 L171.29 -77.86 L168.02 -79.07 L164.67 -80.00 L161.25 -80.64 L157.79 -80.98 L154.31 -81.02 L152.32 -80.91 L150.34 -80.70 L148.38 -80.40 L146.43 -80.00 L144.50 -79.51 L142.60 -78.92 L140.74 -78.23 L138.90 -77.46 L137.11 -76.60 L135.36 -75.65 L133.66 -74.62 L132.02 -73.50 L130.43 -72.31 L128.90 -71.04 L127.43 -69.69 L126.03 -68.28 L124.71 -66.80 L123.45 -65.25 L122.28 -63.65 L121.18 -61.99 L120.17 -60.28 L119.25 -58.52 L118.41 -56.71 L117.66 -54.87 L117.00 -52.99 L116.43 -51.09 L115.96 -49.16 L115.58 -47.20 L115.31 -45.23 L115.12 -43.25 L115.04 -41.27 L115.05 -39.28 L115.18 -37.04 L115.40 -35.07 L115.76 -32.86 L116.22 -30.77 L172.75 -30.77 L171.57 -28.94 L170.28 -27.33 L168.83 -25.87 L167.13 -24.50 L165.40 -23.38 L163.56 -22.45 L161.64 -21.71 L159.53 -21.15 L157.37 -20.83 L155.31 -20.75 L153.13 -20.90 L151.10 -21.26 L149.12 -21.83 L147.10 -22.65 L145.28 -23.63 L143.57 -24.79 L131.00 -8.29 L133.66 -6.42 L136.67 -4.67 L139.81 -3.18 L143.08 -1.97 L146.43 -1.04 L149.85 -0.40 L153.31 -0.06 L156.79 -0.02 L158.78 -0.13 L160.76 -0.34 L162.72 -0.64 L164.67 -1.04 L166.60 -1.53 L168.50 -2.12 L170.36 -2.81 L172.20 -3.58 L173.99 -4.44 L175.74 -5.39 L177.44 -6.42 L179.08 -7.54 L180.67 -8.73 L182.20 -10.00 L183.67 -11.35 L185.07 -12.76 L186.39 -14.24 L187.65 -15.79 L188.82 -17.39 L189.92 -19.05 L190.93 -20.76 L191.85 -22.52 L192.69 -24.33 L193.44 -26.17 L194.10 -28.05 L194.67 -29.95 L195.14 -31.88 L195.52 -33.84 L195.79 -35.81 L195.98 -37.79 L196.06 -39.77 Z M283.73 -41.02 L283.65 -43.00 L283.48 -44.99 L283.22 -46.96 L282.85 -48.91 L282.39 -50.85 L281.84 -52.76 L281.19 -54.64 L280.45 -56.48 L279.62 -58.29 L278.71 -60.06 L277.71 -61.78 L276.62 -63.44 L275.46 -65.06 L274.21 -66.61 L272.90 -68.10 L271.51 -69.52 L270.05 -70.88 L268.53 -72.16 L266.95 -73.36 L265.31 -74.48 L263.61 -75.53 L261.87 -76.49 L260.08 -77.36 L258.26 -78.14 L256.39 -78.84 L254.50 -79.44 L252.57 -79.94 L250.63 -80.36 L248.66 -80.67 L246.69 -80.89 L244.70 -81.01 L242.71 -81.04 L240.73 -80.96 L238.74 -80.79 L236.77 -80.53 L234.82 -80.16 L232.88 -79.70 L230.97 -79.15 L229.09 -78.50 L227.25 -77.76 L225.44 -76.93 L223.67 -76.02 L221.95 -75.02 L220.29 -73.93 L218.67 -72.77 L217.12 -71.52 L215.63 -70.21 L214.21 -68.82 L212.85 -67.36 L211.57 -65.84 L210.37 -64.26 L209.25 -62.62 L208.20 -60.92 L207.24 -59.18 L206.37 -57.39 L205.59 -55.57 L204.89 -53.70 L204.29 -51.81 L203.79 -49.88 L203.37 -47.94 L203.06 -45.97 L202.84 -44.00 L202.72 -42.01 L202.69 -40.02 L202.82 -37.29 L203.13 -34.57 L203.62 -31.88 L204.29 -29.23 L205.14 -26.64 L206.27 -23.87 L207.47 -21.42 L208.84 -19.05 L210.37 -16.78 L212.05 -14.62 L213.86 -12.58 L216.00 -10.50 L218.09 -8.73 L220.49 -6.97 L222.81 -5.51 L225.21 -4.22 L227.47 -3.18 L229.79 -2.29 L232.16 -1.53 L234.57 -0.93 L236.77 -0.51 L239.24 -0.20 L241.72 -0.03 L244.20 -0.01 L246.69 -0.15 L249.16 -0.44 L251.60 -0.88 L254.02 -1.47 L256.39 -2.20 L258.72 -3.08 L260.98 -4.11 L262.98 -5.15 L262.98 0.00 L283.73 0.00 Z M262.98 -40.28 L262.86 -38.34 L262.55 -36.43 L262.06 -34.55 L261.38 -32.73 L260.53 -30.99 L259.51 -29.34 L258.34 -27.79 L257.02 -26.37 L255.56 -25.08 L253.99 -23.95 L252.31 -22.97 L250.55 -22.16 L248.72 -21.53 L246.83 -21.08 L244.91 -20.82 L242.97 -20.75 L241.03 -20.87 L239.12 -21.18 L237.24 -21.67 L235.42 -22.35 L233.68 -23.20 L232.03 -24.22 L230.48 -25.39 L229.06 -26.71 L227.77 -28.17 L226.64 -29.74 L225.66 -31.42 L224.85 -33.18 L224.22 -35.01 L223.77 -36.90 L223.51 -38.82 L223.44 -40.76 L223.56 -42.70 L223.87 -44.61 L224.36 -46.49 L225.04 -48.31 L225.89 -50.05 L226.91 -51.70 L228.08 -53.25 L229.40 -54.67 L230.86 -55.96 L232.43 -57.09 L234.11 -58.07 L235.87 -58.88 L237.70 -59.51 L239.59 -59.96 L241.51 -60.22 L243.45 -60.29 L245.39 -60.17 L247.30 -59.86 L249.18 -59.37 L251.00 -58.69 L252.74 -57.84 L254.39 -56.82 L255.94 -55.65 L257.36 -54.33 L258.65 -52.87 L259.78 -51.30 L260.76 -49.62 L261.57 -47.86 L262.20 -46.03 L262.65 -44.14 L262.91 -42.22 Z"/>
+<path fill="#C9D2CD" d="M0.0 26.0H0.6122222222222223V18.4H0.0Z M10.768157894736843 26.0H11.380380116959065V19.476666666666667L15.782046783625733 26.0H16.394269005847953V18.4H15.782046783625733V24.912777777777777L11.380380116959065 18.4H10.768157894736843Z M28.450204678362574 26.0H29.19964912280702L31.891315789473687 18.4H31.257982456140354L28.81964912280702 25.24L26.402426900584796 18.4H25.758538011695908Z M41.25558479532164 26.0H45.95280701754386V25.40888888888889H41.86780701754386V22.46388888888889H45.31947368421053V21.872777777777777H41.86780701754386V18.99111111111111H45.95280701754386V18.4H41.25558479532164Z M58.029853801169594 26.158333333333335C59.62374269005848 26.158333333333335 60.73207602339181 25.335 60.73207602339181 23.973333333333333C60.73207602339181 22.548333333333332 59.52874269005848 22.17888888888889 58.94818713450292 22.009999999999998L57.41763157894737 21.55611111111111C56.80540935672515 21.376666666666665 55.98207602339181 21.102222222222224 55.98207602339181 20.257777777777775C55.98207602339181 19.455555555555556 56.76318713450293 18.83277777777778 57.871520467836255 18.83277777777778C59.02207602339181 18.843333333333334 59.91929824561404 19.529444444444444 60.06707602339181 20.574444444444445L60.700409356725146 20.458333333333332C60.47874269005848 19.107222222222223 59.3809649122807 18.241666666666667 57.871520467836255 18.241666666666667C56.39374269005848 18.241666666666667 55.338187134502924 19.064999999999998 55.338187134502924 20.27888888888889C55.338187134502924 21.197222222222223 55.91874269005848 21.767222222222223 56.932076023391815 22.06277777777778L58.84263157894737 22.63277777777778C59.35985380116959 22.79111111111111 60.11985380116959 23.086666666666666 60.11985380116959 23.983888888888888C60.11985380116959 24.944444444444443 59.26485380116959 25.567222222222224 58.04040935672515 25.567222222222224C56.837076023391816 25.567222222222224 55.91874269005848 24.944444444444443 55.654853801169594 23.93111111111111L55.04263157894737 24.036666666666665C55.30652046783626 25.345555555555556 56.457076023391814 26.158333333333335 58.029853801169594 26.158333333333335Z M72.47134502923976 26.0H73.08356725146199V18.99111111111111H75.79634502923976V18.4H69.74801169590643V18.99111111111111H72.47134502923976Z M85.2133918128655 26.0H85.8045029239766V19.793333333333333L88.63339181286548 26.0H89.14005847953216L91.96894736842104 19.793333333333333V25.989444444444445H92.56005847953216V18.4H91.9795029239766L88.88672514619883 25.12388888888889L85.78339181286549 18.4H85.2133918128655Z M102.61043859649122 26.0H107.30766081871344V25.40888888888889H103.22266081871344V22.46388888888889H106.6743274853801V21.872777777777777H103.22266081871344V18.99111111111111H107.30766081871344V18.4H102.61043859649122Z M117.1469298245614 26.0H117.75915204678361V19.476666666666667L122.16081871345028 26.0H122.7730409356725V18.4H122.16081871345028V24.912777777777777L117.75915204678361 18.4H117.1469298245614Z M134.91342105263155 26.0H135.52564327485376V18.99111111111111H138.23842105263157V18.4H132.19008771929822V18.99111111111111H134.91342105263155Z M150.2415789473684 26.158333333333335C151.8354678362573 26.158333333333335 152.94380116959064 25.335 152.94380116959064 23.973333333333333C152.94380116959064 22.548333333333332 151.7404678362573 22.17888888888889 151.15991228070175 22.009999999999998L149.62935672514618 21.55611111111111C149.01713450292397 21.376666666666665 148.19380116959064 21.102222222222224 148.19380116959064 20.257777777777775C148.19380116959064 19.455555555555556 148.97491228070174 18.83277777777778 150.08324561403506 18.83277777777778C151.23380116959063 18.843333333333334 152.13102339181285 19.529444444444444 152.27880116959062 20.574444444444445L152.91213450292398 20.458333333333332C152.69046783625728 19.107222222222223 151.59269005847952 18.241666666666667 150.08324561403506 18.241666666666667C148.6054678362573 18.241666666666667 147.54991228070173 19.064999999999998 147.54991228070173 20.27888888888889C147.54991228070173 21.197222222222223 148.1304678362573 21.767222222222223 149.14380116959063 22.06277777777778L151.0543567251462 22.63277777777778C151.5715789473684 22.79111111111111 152.3315789473684 23.086666666666666 152.3315789473684 23.983888888888888C152.3315789473684 24.944444444444443 151.4765789473684 25.567222222222224 150.25213450292395 25.567222222222224C149.04880116959063 25.567222222222224 148.1304678362573 24.944444444444443 147.8665789473684 23.93111111111111L147.25435672514618 24.036666666666665C147.51824561403507 25.345555555555556 148.66880116959064 26.158333333333335 150.2415789473684 26.158333333333335Z M173.27678362573099 26.0H173.88900584795323V23.03388888888889H176.14789473684212C176.28511695906434 23.03388888888889 176.46456140350878 23.023333333333333 176.65456140350878 22.991666666666667C177.79456140350877 22.822777777777777 178.48067251461987 21.883333333333333 178.48067251461987 20.72222222222222C178.48067251461987 19.550555555555555 177.79456140350877 18.621666666666666 176.65456140350878 18.44222222222222C176.46456140350878 18.410555555555554 176.2956725146199 18.4 176.14789473684212 18.4H173.27678362573099ZM173.88900584795323 22.442777777777778V18.99111111111111H176.13733918128656C176.25345029239767 18.99111111111111 176.43289473684212 19.001666666666665 176.601783625731 19.03333333333333C177.42511695906433 19.202222222222222 177.836783625731 19.941111111111113 177.836783625731 20.72222222222222C177.836783625731 21.503333333333334 177.42511695906433 22.231666666666666 176.601783625731 22.400555555555556C176.43289473684212 22.432222222222222 176.25345029239767 22.442777777777778 176.13733918128656 22.442777777777778Z M188.21438596491228 26.0H192.52105263157895V25.40888888888889H188.82660818713452V18.4H188.21438596491228Z M206.96254385964912 26.0H207.59587719298247L204.9042105263158 18.4H204.15476608187134L201.46309941520468 26.0H202.10698830409356L202.78254385964914 24.089444444444446H206.276432748538ZM202.9830994152047 23.519444444444446 204.52421052631578 19.149444444444445 206.07587719298246 23.519444444444446Z M218.57514619883042 26.0H219.18736842105264V18.99111111111111H221.90014619883044V18.4H215.8518128654971V18.99111111111111H218.57514619883042Z M231.31719298245616 26.0H231.9294152046784V22.50611111111111H234.97997076023395V21.89388888888889H231.9294152046784V19.01222222222222H235.61330409356728V18.4H231.31719298245616Z M248.16535087719302 26.158333333333335C250.44535087719302 26.158333333333335 251.62757309941523 24.532777777777778 251.62757309941523 22.2C251.62757309941523 19.86722222222222 250.44535087719302 18.241666666666667 248.16535087719302 18.241666666666667C245.89590643274857 18.241666666666667 244.71368421052634 19.86722222222222 244.71368421052634 22.2C244.71368421052634 24.532777777777778 245.89590643274857 26.158333333333335 248.16535087719302 26.158333333333335ZM248.16535087719302 25.567222222222224C246.29701754385968 25.556666666666665 245.34701754385966 24.17388888888889 245.36812865497077 22.2C245.37868421052633 20.215555555555554 246.29701754385968 18.83277777777778 248.16535087719302 18.83277777777778C250.03368421052633 18.843333333333334 250.9731286549708 20.215555555555554 250.9731286549708 22.2C250.9731286549708 24.17388888888889 250.03368421052633 25.567222222222224 248.16535087719302 25.567222222222224Z M266.649619883041 26.0 265.11906432748543 22.865C265.96350877192987 22.52722222222222 266.459619883041 21.70388888888889 266.459619883041 20.72222222222222C266.459619883041 19.550555555555555 265.77350877192987 18.621666666666666 264.6335087719299 18.44222222222222C264.4435087719299 18.410555555555554 264.274619883041 18.4 264.1268421052632 18.4H261.2557309941521V26.0H261.8679532163743V23.03388888888889H264.5068421052632L265.94239766081876 26.0ZM261.8679532163743 22.442777777777778V18.99111111111111H264.11628654970764C264.2323976608188 18.99111111111111 264.4118421052632 19.001666666666665 264.5807309941521 19.03333333333333C265.40406432748546 19.202222222222222 265.8157309941521 19.941111111111113 265.8157309941521 20.72222222222222C265.8157309941521 21.503333333333334 265.40406432748546 22.231666666666666 264.5807309941521 22.400555555555556C264.4118421052632 22.432222222222222 264.2323976608188 22.442777777777778 264.11628654970764 22.442777777777778Z M276.3833333333334 26.0H276.9744444444445V19.793333333333333L279.8033333333334 26.0H280.31000000000006L283.13888888888897 19.793333333333333V25.989444444444445H283.7300000000001V18.4H283.1494444444445L280.05666666666673 25.12388888888889L276.9533333333334 18.4H276.3833333333334Z"/>
+</svg></a>
+    <p class="ft-q" data-i18n-2="foot.q">La estructura detrás de <b>cada gran inversión.</b></p>
+    <div class="ft-c"><span>ipsasite.com</span><i></i><a href="mailto:info@ipsasite.com">info@ipsasite.com</a></div>
+    <div class="ft-b">
+      <small>© 2026 IPSA · Investments Platform, S.A. · <span data-i18n="foot.r">Todos los derechos reservados.</span></small>
+      <a class="wam" href="https://wampty.com" target="_blank" rel="noopener" aria-label="Diseño WAM!, abre wampty.com" data-i18n-aria="a.wam"><span data-i18n="foot.d">Diseño</span><img src="img/wam-marfil.png" width="396" height="105" alt="WAM!"></a>
+    </div>
+  </div>
+  <div class="ft-st" aria-hidden="true"></div>
+</footer>
+
+<script>
+(function(){
+  var T = {"es": {"nav.serv": "Servicios", "nav.proc": "Cómo trabajamos", "nav.enf": "Enfoque", "nav.cont": "Contacto", "nav.cta": "Conversemos", "a.nav": "Principal", "a.lang": "Idioma", "a.home": "IPSA, inicio", "a.rad": "Servicios de IPSA", "a.dg": "Diagrama de una estructura", "a.wam": "Diseño WAM!, abre wampty.com", "hero.k": "Investments Platform", "hero.h": "La estructura detrás de|cada gran inversión.", "hero.p": "Diseñamos estructuras financieras y jurídicas, impulsamos el desarrollo de negocios y acompañamos cada decisión con consultoría especializada.", "hero.c1": "Conversemos", "hero.c2": "Ver servicios", "tag1": "Estructuras financieras", "tag2": "Estructuras jurídicas", "tag3": "Desarrollo de negocios", "tag4": "Consultoría", "serv.k": "Servicios", "serv.h": "Cuatro frentes,|una sola plataforma.", "serv.p": "Cada proyecto recibe la combinación exacta que necesita.", "s1.t": "Estructuras financieras", "s1.p": "Su capital, bien organizado.", "s1.b1": "Modelos y esquemas de inversión", "s1.b2": "Opciones de financiamiento", "s1.b3": "Proyecciones y escenarios", "s2.t": "Estructuras jurídicas", "s2.p": "El vehículo correcto para cada proyecto.", "s2.b1": "Sociedades y holdings", "s2.b2": "Fideicomisos y vehículos de inversión", "s2.b3": "Acuerdos entre socios", "s3.t": "Desarrollo de negocios", "s3.p": "Proyectos conectados con capital y aliados.", "s3.b1": "Búsqueda de socios e inversionistas", "s3.b2": "Alianzas estratégicas", "s3.b3": "Expansión a nuevos mercados", "s4.t": "Consultoría", "s4.p": "Criterio experto en cada decisión.", "s4.b1": "Diagnóstico y estrategia", "s4.b2": "Evaluación de oportunidades", "s4.b3": "Acompañamiento continuo", "proc.k": "Cómo trabajamos", "proc.h": "Un método claro,|paso a paso.", "p1.t": "Escuchamos", "p1.p": "Conocemos su proyecto, sus metas y su horizonte.", "p2.t": "Diseñamos", "p2.p": "Definimos la estructura financiera y jurídica ideal.", "p3.t": "Ejecutamos", "p3.p": "La ponemos en marcha con los aliados correctos.", "p4.t": "Acompañamos", "p4.p": "Seguimos cada etapa de su inversión.", "enf.k": "Nuestro enfoque", "enf.h": "Principios que|nos definen.", "enf.p": "Cuatro principios guían cada estructura que diseñamos.", "enf.q": "Primero entendemos,|luego estructuramos.", "e1.t": "Sólida", "e1.p": "Estructuras pensadas para durar.", "e2.t": "Clara", "e2.p": "Cada paso explicado, cada cifra a la vista.", "e3.t": "Cercana", "e3.p": "Acompaña al cliente de principio a fin.", "e4.t": "Visionaria", "e4.p": "Decisiones de hoy pensadas para mañana.", "cont.k": "Contacto", "cont.h": "Conversemos sobre|su próxima inversión.", "cont.p": "Cuéntenos su proyecto y agendamos una reunión.", "cont.l1": "Reunión para conocer su proyecto", "cont.l2": "Propuesta de estructura para su caso", "cont.l3": "Confidencialidad en cada conversación", "f.nombre": "Nombre", "f.empresa": "Empresa (opcional)", "f.correo": "Correo", "f.tel": "Teléfono", "f.tema": "¿En qué podemos ayudarle?", "f.o0": "Elija una opción", "f.o5": "Otro tema", "f.msg": "Mensaje", "f.enviar": "Enviar", "f.ok": "Abrimos su programa de correo con el mensaje listo para info@ipsasite.com. Si no se abre, escríbanos directamente a esa dirección.", "c.correo": "Correo", "c.copiar": "Copiar", "c.copiado": "Copiado", "m.asunto": "Contacto desde ipsasite.com", "m.empresa": "Empresa", "f.err": "Complete nombre y un correo válido.", "foot.q": "La estructura detrás de|cada gran inversión.", "foot.r": "Todos los derechos reservados.", "foot.d": "Diseño", "hc.t": "Estructura a la medida", "hc.s": "Diagnóstico · Diseño · Ejecución", "alt.reu": "Socios cerrando una reunión con un apretón de manos en una oficina luminosa", "rad.c": "Visión integral", "flu.k": "El recorrido de su capital", "flu.h": "De la idea al crecimiento,|en cinco pasos.", "f1.t": "Su capital", "f1.p": "Metas, socios y horizonte", "f2.t": "Estructura jurídica", "f2.p": "Sociedad, fideicomiso o vehículo", "f3.t": "Estructura financiera", "f3.p": "Financiamiento y escenarios", "f4.t": "Proyecto o negocio", "f4.p": "Ejecución con aliados", "f5.t": "Crecimiento", "f5.p": "Revisión y nuevas etapas", "pq.k": "Para quién trabajamos", "pq.h": "Personas y empresas|con visión de largo plazo.", "q1.t": "Inversionistas", "q1.p": "Un portafolio con orden y criterio.", "q2.t": "Desarrolladores", "q2.p": "Proyectos estructurados para atraer inversión.", "q3.t": "Empresas familiares", "q3.p": "Orden y continuidad entre generaciones.", "q4.t": "Emprendedores", "q4.p": "Bases sólidas para escalar su negocio.", "alt.q1": "Inversionista mirando la ciudad desde una terraza", "alt.q2": "Equipo revisando la maqueta de un proyecto", "alt.q3": "Dos generaciones de una empresa revisando su plan de negocio", "alt.q4": "Emprendedora junto a la ventana de su oficina", "est.k": "Diseño de estructuras", "est.h": "La anatomía de|una buena estructura.", "est.p": "Cada pieza cumple una función precisa dentro del conjunto.", "est.b1": "Cada activo en su lugar", "est.b2": "Socios con reglas claras", "est.b3": "Una base lista para recibir inversión", "d.inv": "Inversionistas", "d.hold": "Holding", "d.hold2": "Diseño IPSA", "d.op": "Sociedad operativa", "d.fid": "Fideicomiso", "d.veh": "Vehículo de inversión", "d.act": "Proyectos y activos", "d.nota": "Ejemplo ilustrativo. Cada estructura se diseña según su proyecto.", "cta.k": "Consultoría", "cta.h": "Decisiones con|respaldo experto.", "cta.p": "Acompañamiento cercano, de la primera reunión a la puesta en marcha.", "alt.soc": "Tres socios observan juntos un edificio de oficinas", "alt.eje": "Ejecutivo revisando su tableta junto a un ventanal", "alt.par": "Asesor revisando un documento con una pareja en una sala luminosa"}, "en": {"nav.serv": "Services", "nav.proc": "How we work", "nav.enf": "Approach", "nav.cont": "Contact", "nav.cta": "Let's talk", "a.nav": "Main", "a.lang": "Language", "a.home": "IPSA, home", "a.rad": "IPSA services", "a.dg": "Diagram of a structure", "a.wam": "Design by WAM!, opens wampty.com", "hero.k": "Investments Platform", "hero.h": "The structure behind|every great investment.", "hero.p": "We design financial and legal structures, drive business development and support every decision with specialized consulting.", "hero.c1": "Let's talk", "hero.c2": "See services", "tag1": "Financial structuring", "tag2": "Legal structuring", "tag3": "Business development", "tag4": "Consulting", "serv.k": "Services", "serv.h": "Four disciplines,|one platform.", "serv.p": "Every project gets exactly the combination it needs.", "s1.t": "Financial structuring", "s1.p": "Your capital, well organized.", "s1.b1": "Investment models and schemes", "s1.b2": "Financing options", "s1.b3": "Projections and scenarios", "s2.t": "Legal structuring", "s2.p": "The right vehicle for every project.", "s2.b1": "Companies and holdings", "s2.b2": "Trusts and investment vehicles", "s2.b3": "Shareholder agreements", "s3.t": "Business development", "s3.p": "Projects connected with capital and partners.", "s3.b1": "Partner and investor search", "s3.b2": "Strategic alliances", "s3.b3": "Expansion into new markets", "s4.t": "Consulting", "s4.p": "Expert judgment in every decision.", "s4.b1": "Assessment and strategy", "s4.b2": "Opportunity evaluation", "s4.b3": "Ongoing support", "proc.k": "How we work", "proc.h": "A clear method,|step by step.", "p1.t": "We listen", "p1.p": "We get to know your project, your goals and your horizon.", "p2.t": "We design", "p2.p": "We define the ideal financial and legal structure.", "p3.t": "We execute", "p3.p": "We put it in motion with the right partners.", "p4.t": "We stay with you", "p4.p": "We follow every stage of your investment.", "enf.k": "Our approach", "enf.h": "The principles|that define us.", "enf.p": "Four principles guide every structure we design.", "enf.q": "First we understand,|then we structure.", "e1.t": "Solid", "e1.p": "Structures built to last.", "e2.t": "Clear", "e2.p": "Every step explained, every figure in sight.", "e3.t": "Personal", "e3.p": "Stands by each client from start to finish.", "e4.t": "Visionary", "e4.p": "Today's decisions, made for tomorrow.", "cont.k": "Contact", "cont.h": "Let's talk about|your next investment.", "cont.p": "Tell us about your project and we will schedule a meeting.", "cont.l1": "A meeting to understand your project", "cont.l2": "A structure proposal for your case", "cont.l3": "Confidentiality in every conversation", "f.nombre": "Name", "f.empresa": "Company (optional)", "f.correo": "Email", "f.tel": "Phone", "f.tema": "How can we help you?", "f.o0": "Choose an option", "f.o5": "Other topic", "f.msg": "Message", "f.enviar": "Send", "f.ok": "We opened your email app with the message ready for info@ipsasite.com. If it does not open, write to that address directly.", "c.correo": "Email", "c.copiar": "Copy", "c.copiado": "Copied", "m.asunto": "Contact from ipsasite.com", "m.empresa": "Company", "f.err": "Please enter your name and a valid email.", "foot.q": "The structure behind|every great investment.", "foot.r": "All rights reserved.", "foot.d": "Design by", "hc.t": "Tailored structure", "hc.s": "Assessment · Design · Execution", "alt.reu": "Partners closing a meeting with a handshake in a bright office", "rad.c": "Integrated view", "flu.k": "The journey of your capital", "flu.h": "From idea to growth,|in five steps.", "f1.t": "Your capital", "f1.p": "Goals, partners and horizon", "f2.t": "Legal structure", "f2.p": "Company, trust or vehicle", "f3.t": "Financial structure", "f3.p": "Financing and scenarios", "f4.t": "Project or business", "f4.p": "Execution with partners", "f5.t": "Growth", "f5.p": "Review and next stages", "pq.k": "Who we work with", "pq.h": "People and companies|with a long-term vision.", "q1.t": "Investors", "q1.p": "A portfolio built with order and judgment.", "q2.t": "Developers", "q2.p": "Projects structured to attract investment.", "q3.t": "Family businesses", "q3.p": "Order and continuity across generations.", "q4.t": "Entrepreneurs", "q4.p": "Solid foundations to scale your business.", "alt.q1": "Investor looking at the city from a terrace", "alt.q2": "Team reviewing a project model", "alt.q3": "Two generations of a company reviewing their business plan", "alt.q4": "Entrepreneur by her office window", "est.k": "Structure design", "est.h": "The anatomy of|a well-designed structure.", "est.p": "Every piece plays a precise role within the whole.", "est.b1": "Every asset in its place", "est.b2": "Partners with clear rules", "est.b3": "A base ready to receive investment", "d.inv": "Investors", "d.hold": "Holding", "d.hold2": "IPSA design", "d.op": "Operating company", "d.fid": "Trust", "d.veh": "Investment vehicle", "d.act": "Projects and assets", "d.nota": "Illustrative example. Every structure is designed around your project.", "cta.k": "Consulting", "cta.h": "Decisions backed|by expert advice.", "cta.p": "Close guidance, from the first meeting to launch.", "alt.soc": "Three partners looking up at an office building together", "alt.eje": "Executive checking his tablet by a floor-to-ceiling window", "alt.par": "Advisor reviewing a document with a couple in a bright lounge"}};
+  var C = {"correo": "info@ipsasite.com", "telefono": "", "whatsapp": "", "direccion": ""};
+  function qa(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  try{ if('scrollRestoration' in history) history.scrollRestoration='manual'; }catch(e){}
+  if(!location.hash){ window.scrollTo(0,0); }
+  var lang='es';
+  try{ lang = sessionStorage.getItem('ipsa-lang') || 'es'; }catch(e){}
+  if(!T[lang]) lang='es';
+  function apply(l){
+    lang=l; document.documentElement.lang=l;
+    qa('[data-i18n]').forEach(function(el){ var v=T[l][el.getAttribute('data-i18n')]; if(v!=null) el.textContent=v; });
+    qa('[data-i18n-2]').forEach(function(el){ var v=T[l][el.getAttribute('data-i18n-2')]; if(v==null) return; var p=v.split('|'); el.innerHTML=esc(p[0])+(p[1]? ' <b>'+esc(p[1])+'</b>' : ''); });
+    qa('[data-i18n-alt]').forEach(function(el){ var v=T[l][el.getAttribute('data-i18n-alt')]; if(v!=null) el.setAttribute('alt',v); });
+    qa('[data-i18n-ph]').forEach(function(el){ var v=T[l][el.getAttribute('data-i18n-ph')]; if(v!=null) el.setAttribute('placeholder',v); });
+    qa('[data-i18n-aria]').forEach(function(el){ var v=T[l][el.getAttribute('data-i18n-aria')]; if(v!=null) el.setAttribute('aria-label',v); });
+    qa('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.l===l)); });
+    try{ sessionStorage.setItem('ipsa-lang', l); }catch(e){}
+  }
+  qa('.lang button').forEach(function(b){ b.addEventListener('click', function(){ apply(b.dataset.l); }); });
+  var hd=document.querySelector('header');
+  function sc(){ hd.classList.toggle('sc', window.scrollY>8); }
+  window.addEventListener('scroll', sc, {passive:true}); sc();
+
+  // datos de contacto (solo si existen)
+  var d=document.getElementById('datos'); var rows=[];
+  if(C.correo){
+    var row=document.createElement('div'); row.className='mail';
+    var lb=document.createElement('b'); lb.setAttribute('data-i18n','c.correo'); lb.textContent=T[lang]['c.correo'];
+    var ad=document.createElement('span'); ad.className='addr'; ad.textContent=C.correo;
+    var cp=document.createElement('button'); cp.type='button'; cp.className='copy'; cp.setAttribute('data-i18n','c.copiar'); cp.textContent=T[lang]['c.copiar'];
+    cp.addEventListener('click', function(){
+      function done(){ cp.textContent=T[lang]['c.copiado']; setTimeout(function(){ cp.textContent=T[lang]['c.copiar']; }, 1600); }
+      function sel(){ var r=document.createRange(); r.selectNodeContents(ad); var s=getSelection(); s.removeAllRanges(); s.addRange(r); }
+      try{ navigator.clipboard.writeText(C.correo).then(done, sel); }catch(e){ sel(); }
+    });
+    row.appendChild(lb); row.appendChild(ad); row.appendChild(cp); d.appendChild(row);
+  }
+  if(C.telefono) rows.push(['Tel.', C.telefono]);
+  if(C.whatsapp) rows.push(['WhatsApp', C.whatsapp]);
+  if(C.direccion) rows.push(['', C.direccion]);
+  rows.forEach(function(r){ var p=document.createElement('div'); var b=document.createElement('b'); b.textContent=r[0]; p.appendChild(b); p.appendChild(document.createTextNode(r[1])); d.appendChild(p); });
+  d.hidden = rows.length===0 && !C.correo;
+  apply(lang);
+
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // rueda de servicios <-> frentes; se recorre sola, despacio, hasta que la persona la toca
+  var rad=document.querySelector('.rad'), auto=null, k0=0, manual=false;
+  function on(k){ if(!rad) return; rad.classList.toggle('hov', k!=null);
+    qa('.rad .seg').forEach(function(g){ g.classList.toggle('on', g.dataset.k===String(k)); });
+    qa('.svs .sv').forEach(function(c){ c.classList.toggle('on', c.dataset.k===String(k)); }); }
+  function stop(){ manual=true; if(auto){ clearInterval(auto); auto=null; } }
+  qa('.rad .seg, .svs .sv').forEach(function(el){
+    el.addEventListener('mouseenter', function(){ stop(); on(el.dataset.k); });
+    el.addEventListener('mouseleave', function(){ on(null); });
+    el.addEventListener('click', function(){ stop(); on(el.dataset.k); });
+    el.addEventListener('focus', function(){ stop(); on(el.dataset.k); });
+    el.addEventListener('blur', function(){ on(null); });
+  });
+  function paso(){ on(String(k0)); k0=(k0+1)%4; }
+  if(rad && !reduce && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ es.forEach(function(e){
+      if(e.isIntersecting && !manual && !auto){ paso(); auto=setInterval(paso, 2800); }
+      else if(!e.isIntersecting && auto){ clearInterval(auto); auto=null; }
+    }); }, {threshold:.4}).observe(rad);
+  }
+  // aparición al bajar: solo para lo que está debajo de la pantalla al cargar
+  if('IntersectionObserver' in window && !reduce){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.remove('pre'); io.unobserve(e.target); } }); }, {rootMargin:'0px 0px -8% 0px'});
+    qa('.rv, .dg').forEach(function(el){ var r=el.getBoundingClientRect(); if(r.top>window.innerHeight){ el.classList.add('pre'); io.observe(el); } });
+  }
+  // formulario: abre el correo del visitante con el mensaje listo
+  var f=document.getElementById('form');
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var m=document.getElementById('msg'); var n=f.nombre.value.trim(), c=f.correo.value.trim();
+    m.hidden=false;
+    if(!n || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(c)){ m.className='msg err'; m.textContent=T[lang]['f.err']; return; }
+    m.className='msg ok'; m.textContent=T[lang]['f.ok'];
+    if(C.correo){
+      var tema=f.tema.options[f.tema.selectedIndex]; var tt=(f.tema.value? tema.textContent : '');
+      var L=[[T[lang]['f.nombre'],n],[T[lang]['m.empresa'],f.empresa.value.trim()],[T[lang]['f.correo'],c],[T[lang]['f.tel'],f.tel.value.trim()]]
+        .filter(function(r){ return r[1]!==''; }).map(function(r){ return r[0]+': '+r[1]; });
+      if(tt) L.push(T[lang]['f.tema']+' '+tt);
+      var ms=f.mensaje.value.trim(); if(ms){ L.push(''); L.push(ms); }
+      var body=L.join('\n');
+      var href='mailto:'+C.correo+'?subject='+encodeURIComponent(T[lang]['m.asunto']+(tt?' · '+tt:''))+'&body='+encodeURIComponent(body);
+      try{ window.location.href=href; }catch(e){}
+    }
+  });
+})();
+</script>
+</body>
+</html>

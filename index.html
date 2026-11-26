@@ -48,7 +48,7 @@ h2.h{font-size:clamp(34px,3.9vw,56px)}
 .btn:focus-visible,.lang button:focus-visible,.nav a:focus-visible,.mail .copy:focus-visible,.sv:focus-visible,.wam:focus-visible,.logo:focus-visible{outline:2.5px solid var(--esmeralda);outline-offset:3px}
 .btn-p{background:var(--esmeralda);color:#fff}
 .btn-p:hover{background:var(--esmeralda-2);transform:translateY(-1px)}
-.btn-s{border-color:var(--grafito);color:var(--grafito);background:#fff}
+.btn-s{border-color:var(--grafito);color:var(--grafito);background:transparent}
 .btn-s:hover{background:var(--grafito);color:#fff}
 .btn .ic{width:18px;height:18px}
 
@@ -66,24 +66,26 @@ header.sc{border-bottom-color:var(--linea)}
 .lang button[aria-pressed="true"]{background:var(--grafito);color:#fff}
 .hd .btn{min-height:42px;padding:0 22px;font-size:14px}
 
-/* héroe: blanco con el titular + panel de ónix con bandas a sangre con la foto (como la portada del manual) */
-.hero,.enf,footer{container-type:inline-size}
-.hero{display:grid;grid-template-columns:minmax(0,56fr) minmax(0,44fr);--edge:max(var(--g),calc(50vw - var(--max) / 2));--edge:max(var(--g),calc(50cqw - var(--max) / 2))}
-.hero-t{padding:clamp(64px,7vw,112px) clamp(32px,4.5vw,72px) clamp(72px,8vw,120px) var(--edge);display:flex;flex-direction:column;justify-content:center}
+/* franjas a sangre: las mitades con foto o piedra llegan al borde de la ventana y ocupan todo el alto */
+.hero,.enf,.split,footer{container-type:inline-size}
+.hero,.enf,.split,footer{--edge:max(var(--g),calc(50vw - var(--max) / 2));--edge:max(var(--g),calc(50cqw - var(--max) / 2))}
+.ph{margin:0;position:relative;overflow:hidden;background:var(--perla);min-width:0}
+.ph img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+
+/* héroe: mitad de piedra ónix con bandas (texto) + mitad con la foto de la reunión a sangre */
+.hero{display:grid;grid-template-columns:minmax(0,56fr) minmax(0,44fr);min-height:clamp(620px,calc(100svh - 76px),800px)}
+.hero-t{background:#F5F3ED url(img/piedra-bandas.webp) 22% 50%/cover no-repeat;padding:clamp(64px,7vw,104px) clamp(32px,4.5vw,72px) clamp(72px,7.5vw,112px) var(--edge);display:flex;flex-direction:column;justify-content:center;min-width:0}
 .hero-t .lead{max-width:30em}
+.hero-ph img{object-position:56% 40%}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
-.tags{display:grid;grid-template-columns:repeat(2,max-content);gap:14px 44px;margin:48px 0 0;padding:28px 0 0;border-top:1px solid var(--linea);list-style:none;max-width:580px}
+.tags{display:grid;grid-template-columns:repeat(2,max-content);gap:14px 44px;margin:48px 0 0;padding:28px 0 0;border-top:1px solid rgba(30,34,32,.12);list-style:none;max-width:580px}
 .tags li{display:flex;align-items:baseline;gap:10px;font-size:14px;font-weight:600;color:var(--grafito);line-height:1.4}
 .tags li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--esmeralda);flex:none;transform:translateY(-1px)}
-.hero-v{position:relative;background:#F5F3ED url(img/piedra-bandas.webp) 22% 50%/cover no-repeat;padding:clamp(72px,7vw,112px) clamp(40px,6vw,96px) clamp(96px,9vw,136px) clamp(48px,5.5vw,88px);display:flex;align-items:center}
-.hv{position:relative;width:100%;max-width:520px}
-.hv-ph{margin:0;aspect-ratio:5/4;overflow:hidden;background:var(--perla)}
-.hv-ph img{display:block;width:100%;height:100%;object-fit:cover}
-.badge-ip{position:absolute;left:-30px;top:-30px;width:80px;height:80px;border-radius:50%;background:var(--grafito);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 28px -18px rgba(30,34,32,.55);animation:flota 7s ease-in-out infinite reverse}
-.badge-ip svg{width:50%;height:auto;display:block}
-.hcard{position:absolute;left:-44px;bottom:-92px;width:min(262px,56%);background:#fff;padding:18px 20px 16px;box-shadow:0 22px 44px -26px rgba(30,34,32,.34);display:grid;gap:6px;animation:flota 6s ease-in-out infinite}
-.hcard b{font-size:14.5px;font-weight:800;margin-top:6px}
-.hcard small{font-size:11.5px;color:var(--gris);font-weight:600;letter-spacing:.02em;text-wrap:balance}
+
+/* secciones partidas en dos: foto a sangre + texto alineado a la retícula */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.sp-t{padding:var(--pad) var(--edge) var(--pad) clamp(40px,6.5vw,112px);min-width:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.split.txt-l .sp-t{padding:var(--pad) clamp(40px,6.5vw,112px) var(--pad) var(--edge)}
 
 /* encabezado de sección */
 .sh{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:40px;align-items:end;margin-bottom:clamp(56px,6.5vw,96px)}
@@ -106,26 +108,35 @@ header.sc{border-bottom-color:var(--linea)}
 .flow-band{background:#ECE7E0 url(img/piedra-arena.webp) center/cover no-repeat}
 .flow-band .sh{margin-bottom:clamp(56px,6vw,88px)}
 
-/* para quién */
-.who{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,2.6vw,36px)}
+/* para quién: las cuatro fotos en una franja continua de borde a borde; las costuras caen en la retícula
+   de 4 columnas del contenido (las fotos de los extremos absorben el margen), así cada título queda
+   debajo de su foto y alineado con el titular */
+.who-sec{container-type:inline-size}
+.who{--edge:max(var(--g),calc(50vw - var(--max) / 2));--edge:max(var(--g),calc(50cqw - var(--max) / 2));--G:clamp(24px,2.8vw,40px);
+  --X:calc((100cqw - 2 * var(--edge) - 3 * var(--G)) / 4 + var(--G));
+  display:grid;grid-template-columns:minmax(0,1fr) var(--X) var(--X) minmax(0,1fr);gap:0 3px}
 .wc{min-width:0}
-.wc figure{margin:0;aspect-ratio:4/5;overflow:hidden;background:var(--perla)}
+.wc figure{margin:0;height:clamp(300px,30vw,520px);overflow:hidden;background:var(--perla)}
 .wc img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
 .wc:hover img{transform:scale(1.035)}
-.wc h3{font-size:18px;font-weight:800;margin-top:24px;display:flex;align-items:center;gap:11px;letter-spacing:-.01em}
+.wc-t{padding:28px calc(var(--G) / 2) 0}
+.wc:nth-child(1) .wc-t{padding-left:var(--edge)}
+.wc:nth-child(2) .wc-t{padding-left:calc(var(--G) / 2 + 1.5px)}
+.wc:nth-child(3) .wc-t{padding-left:calc(var(--G) / 2 - 1.5px)}
+.wc:nth-child(4) .wc-t{padding-left:calc(var(--G) / 2 - 4.5px);padding-right:var(--edge)}
+.wc h3{font-size:18px;font-weight:800;display:flex;align-items:center;gap:11px;letter-spacing:-.01em}
 .wc h3::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--esmeralda);flex:none}
-.wc p{font-size:15px;color:var(--gris);margin-top:8px;line-height:1.55}
+.wc p{font-size:15px;color:var(--gris);margin-top:8px;line-height:1.55;max-width:26em}
 
-/* estructura: diagrama sobre un panel de piedra perla */
+/* estructura: franja completa de piedra perla detrás de toda la sección; el diagrama va directo sobre la piedra */
+.est-band{background:#F5F2EC url(img/piedra-perla.webp) 40% 60%/cover no-repeat}
 .est-g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(48px,7vw,112px);align-items:center}
-.dg{background:#F5F2EC url(img/piedra-perla.webp) 0% 60%/cover no-repeat;padding:clamp(22px,4vw,56px);min-width:0}
-.dg .nota{font-size:13px;color:var(--gris-st);margin-top:18px;font-weight:500}
+.dg{min-width:0}
+.dg .nota{font-size:13px;color:var(--gris-st);margin-top:22px;font-weight:500;text-align:center}
 
-/* cómo trabajamos */
-.proc-g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(48px,8vw,128px);align-items:center}
-.foto{margin:0;aspect-ratio:4/5;overflow:hidden;background:var(--perla)}
-.foto img{display:block;width:100%;height:100%;object-fit:cover}
-.steps{list-style:none;margin:56px 0 0;padding:0;display:grid;gap:34px;position:relative}
+/* cómo trabajamos: foto del ejecutivo a sangre en la mitad izquierda, pasos a la derecha */
+.proc-ph img{object-position:60% 50%}
+.steps{list-style:none;margin:56px 0 0;padding:0;display:grid;gap:34px;position:relative;width:100%;max-width:560px}
 .steps::before{content:"";position:absolute;left:26px;top:26px;bottom:26px;width:1px;background:var(--linea-2)}
 .steps li{position:relative;display:grid;grid-template-columns:52px 1fr;column-gap:26px;align-items:start}
 .steps li > div{min-width:0;padding-top:3px}
@@ -134,9 +145,12 @@ header.sc{border-bottom-color:var(--linea)}
 .steps h3{font-size:19px;font-weight:800;letter-spacing:-.01em}
 .steps p{color:var(--gris);font-size:15.5px;margin-top:2px}
 
-/* enfoque: mitad grafito con el titular, mitad blanca con foto y principios (como «La marca» del manual) */
-.enf{display:grid;grid-template-columns:minmax(0,11fr) minmax(0,13fr);--edge:max(var(--g),calc(50vw - var(--max) / 2));--edge:max(var(--g),calc(50cqw - var(--max) / 2))}
-.enf-a{background:var(--grafito);color:#fff;padding:var(--pad) clamp(32px,4.5vw,72px) var(--pad) var(--edge);display:flex;flex-direction:column;justify-content:space-between;gap:72px}
+/* enfoque: mitad grafito a sangre (costura al centro, igual que proceso y consultoría); a la derecha la foto
+   a sangre arriba y los principios debajo. La cita arranca a la altura de los principios */
+.enf{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto}
+.enf-a,.enf-qc{background:var(--grafito);color:#fff;grid-column:1;min-width:0}
+.enf-a{grid-row:1;padding:var(--pad) clamp(32px,4.5vw,72px) clamp(40px,4vw,56px) var(--edge)}
+.enf-qc{grid-row:2;padding:clamp(56px,6vw,88px) clamp(32px,4.5vw,72px) var(--pad) var(--edge)}
 .enf-a .k{color:var(--claro)}
 .enf-a .k::before{background:var(--claro)}
 .enf-a .h{color:#fff;font-size:clamp(44px,4.6vw,66px);line-height:1.02}
@@ -144,22 +158,19 @@ header.sc{border-bottom-color:var(--linea)}
 .enf-q{margin:0;font-size:clamp(22px,2vw,30px);font-weight:300;letter-spacing:-.02em;line-height:1.25;color:#fff}
 .enf-q::before{content:"";display:block;width:34px;height:2px;background:var(--claro);margin-bottom:26px}
 .enf-q b{font-weight:800;display:block}
-.enf-b{padding:var(--pad) var(--edge) var(--pad) clamp(40px,6vw,96px);min-width:0}
-.enf-b figure{margin:0;aspect-ratio:16/10;overflow:hidden;background:var(--perla)}
-.enf-b figure img{display:block;width:100%;height:100%;object-fit:cover}
-.vals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 44px;margin-top:56px}
+.enf-ph{grid-column:2;grid-row:1;min-height:31.25cqw}
+.enf-ph img{object-position:50% 35%}
+.vals{grid-column:2;grid-row:2;align-content:start;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 44px;padding:clamp(56px,6vw,88px) var(--edge) var(--pad) clamp(40px,6vw,96px)}
 .val{display:flex;gap:18px;align-items:flex-start;min-width:0}
 .val .ic{width:30px;height:30px;flex:none;color:var(--esmeralda);margin-top:2px}
 .val h3{font-size:19px;font-weight:800;letter-spacing:-.01em;line-height:1.25}
 .val p{color:var(--gris);font-size:15px;margin-top:4px;line-height:1.55}
 
-/* consultoría: panel de ónix blanco + foto */
-.cta-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-.cta-st{background:#F5F3ED url(img/piedra-onix.webp) center/cover no-repeat;padding:clamp(48px,5vw,80px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-width:0}
+/* consultoría: franja completa · foto de los socios a sangre + mitad de piedra ónix con el texto */
+.cta-st{background:#F5F3ED url(img/piedra-onix.webp) center/cover no-repeat}
 .cta-st .btn{margin-top:40px}
 .cta-st h2.h{font-size:clamp(32px,3.3vw,48px)}
-.cta-ph{margin:0;min-width:0;overflow:hidden;background:var(--perla);position:relative;min-height:440px}
-.cta-ph img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.cta-ph img{object-position:84% 45%}
 
 /* contacto */
 .cont-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(48px,7vw,112px);align-items:start}
@@ -184,7 +195,7 @@ form .btn{justify-self:start;margin-top:4px}
 .msg.err{color:#9A3B24}
 
 /* pie: grafito + piedra zen, como la contraportada */
-footer{background:var(--grafito);color:#fff;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);--edge:max(var(--g),calc(50vw - var(--max) / 2));--edge:max(var(--g),calc(50cqw - var(--max) / 2))}
+footer{background:var(--grafito);color:#fff;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
 .ft-a{padding:clamp(80px,9vw,128px) clamp(32px,5vw,80px) 40px var(--edge);min-width:0}
 .ft-a .logo{display:block;width:210px;max-width:100%}
 .ft-a .logo svg{display:block;width:100%;height:auto}
@@ -200,36 +211,47 @@ footer{background:var(--grafito);color:#fff;display:grid;grid-template-columns:m
 .wam:hover{color:#fff}
 .ft-st{background:#ECE7E0 url(img/piedra-zen.webp) 40% 50%/cover no-repeat;min-height:100%}
 
-.serv-g > *,.est-g > *,.proc-g > *,.cont-g > *,.who > *{min-width:0}
+.serv-g > *,.est-g > *,.cont-g > *,.who > *{min-width:0}
 /* aparición al bajar (solo si hay JS y el bloque está fuera de la pantalla al cargar) */
 .rv{transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
 .rv.pre{opacity:0;transform:translateY(24px)}
 
+/* encuadre de la reunión según la forma del cuadro: si es angosto sale la señora de espaldas de la izquierda
+   y quedan completos el señor y la señora canosa; si es ancho entran los tres */
+@media (min-width:1101px) and (max-width:1363px) and (max-aspect-ratio:23/15){
+  .hero-ph img{object-position:80% 40%}
+}
 @media (max-width:1100px){
   .nav{gap:22px}
-  .hero{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  /* a este ancho el cuadro de la foto nunca es más ancho que alto x 0,74: así el encuadre es siempre el mismo */
+  .hero{grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:max(clamp(620px,calc(100svh - 76px),800px),68vw)}
+  .hero-ph img{object-position:79% 40%}
+  .cta-ph img{object-position:78% 45%}
 }
 @media (max-width:1000px){
   .nav{display:none}
   .hd .lang{margin-left:auto}
-  .hero{grid-template-columns:1fr}
-  .hero-t{padding:56px var(--g) 64px}
-  .hero-v{padding:48px var(--g) 56px}
-  .hv{max-width:560px;margin:0 auto}
-  .badge-ip{left:-8px;top:-26px;width:64px;height:64px}
-  .hcard{position:relative;left:auto;bottom:auto;margin:-40px 0 0 14px;width:min(262px,70%)}
 }
 @media (max-width:900px){
   .sh{grid-template-columns:1fr;gap:0}
   .sh .lead{justify-self:start;margin-top:22px}
-  .serv-g,.est-g,.proc-g,.cont-g{grid-template-columns:1fr;gap:56px}
-  .who{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 20px}
-  .proc-g .foto{aspect-ratio:4/3}
+  .serv-g,.est-g,.cont-g{grid-template-columns:1fr;gap:56px}
+  /* las mitades se apilan: la imagen a todo el ancho de la pantalla y el texto debajo */
+  .hero,.split{grid-template-columns:1fr;min-height:0}
+  .hero-ph,.split .ph{order:-1;height:min(68vw,560px)}
+  .hero-ph img{object-position:56% 40%}
+  .hero-t{padding:52px var(--g) 64px}
+  .sp-t,.split.txt-l .sp-t{padding:56px var(--g) var(--pad)}
+  .who{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:52px}
+  .wc figure{height:auto;aspect-ratio:4/5}
+  .wc:nth-child(odd) .wc-t{padding-left:var(--edge);padding-right:calc(var(--G) / 2)}
+  .wc:nth-child(even) .wc-t{padding-left:calc(var(--G) / 2 - 1.5px);padding-right:var(--edge)}
   .enf{grid-template-columns:1fr}
-  .enf-a{padding:var(--pad) var(--g);gap:56px}
-  .enf-b{padding:56px var(--g) var(--pad)}
-  .cta-g{grid-template-columns:1fr}
-  .cta-ph{order:-1;aspect-ratio:4/3;min-height:0}
+  .enf-a,.enf-qc,.enf-ph,.vals{grid-column:1;grid-row:auto}
+  .enf-a{padding:var(--pad) var(--g) 0}
+  .enf-qc{padding:48px var(--g) var(--pad)}
+  .enf-ph{min-height:0;aspect-ratio:4/3}
+  .vals{padding:56px var(--g) var(--pad)}
   footer{grid-template-columns:1fr}
   .ft-st{order:-1;min-height:132px}
   .ft-a{padding:72px var(--g) 36px}
@@ -240,24 +262,16 @@ footer{background:var(--grafito);color:#fff;display:grid;grid-template-columns:m
   .hd .btn{min-height:40px;padding:0 16px;font-size:13px}
   .tags{grid-template-columns:1fr 1fr;gap:12px 18px;margin-top:44px}
   .svs{grid-template-columns:1fr;gap:44px}
-  .who{grid-template-columns:1fr;gap:56px}
-  .vals{grid-template-columns:1fr;gap:30px;margin-top:44px}
-  .cta-st{padding:44px 24px 48px}
+  .who{grid-template-columns:1fr;row-gap:48px}
+  .wc figure{aspect-ratio:4/3}
+  .wc:nth-child(n) .wc-t{padding:24px var(--g) 0}
+  .vals{grid-template-columns:1fr;gap:30px}
   form{grid-template-columns:1fr;gap:20px}
   .ft-b{flex-direction:column;align-items:flex-start}
 }
 @media (max-width:440px){.tags{grid-template-columns:1fr;gap:12px}}
 @media (max-width:359px){.hd .btn{display:none}}
 @media (prefers-reduced-motion:reduce){.rv.pre{opacity:1;transform:none}}
-
-/* tarjeta flotante del héroe */
-.mchart{width:100%;height:auto;display:block}
-@keyframes crece{from{transform:scaleY(.2)}to{transform:none}}
-.mchart .bar{transform-box:fill-box;transform-origin:bottom;animation:crece 1.1s cubic-bezier(.2,.7,.2,1) both}
-.mchart .bar:nth-of-type(2){animation-delay:.12s}.mchart .bar:nth-of-type(3){animation-delay:.24s}.mchart .bar:nth-of-type(4){animation-delay:.36s}
-@keyframes traza{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
-.mchart .trend{stroke-dasharray:1;animation:traza 1.4s .5s cubic-bezier(.3,.6,.2,1) both}
-@keyframes flota{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 
 /* rueda de servicios */
 .rad{width:100%;max-width:440px;height:auto;display:block;margin:0 auto;overflow:visible}
@@ -288,7 +302,7 @@ footer{background:var(--grafito);color:#fff;display:grid;grid-template-columns:m
 .flow h3{font-size:17px;font-weight:800;margin-top:12px;letter-spacing:-.01em;line-height:1.25}
 .flow p{font-size:14.5px;color:var(--gris-st);line-height:1.45}
 
-/* diagrama de estructura (sobre piedra perla) */
+/* diagrama de estructura (sobre la franja de piedra perla) */
 .dg-svg{width:100%;height:auto;display:block}
 .dg-svg .ln{fill:none;stroke:rgba(30,34,32,.42);stroke-width:1.3;stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 1.8s cubic-bezier(.3,.6,.2,1)}
 .dg.pre .ln{stroke-dashoffset:1}
@@ -341,16 +355,7 @@ footer{background:var(--grafito);color:#fff;display:grid;grid-template-columns:m
       <div class="ctas"><a class="btn btn-p" href="#contacto"><span data-i18n="hero.c1">Conversemos</span></a><a class="btn btn-s" href="#servicios"><span data-i18n="hero.c2">Ver servicios</span></a></div>
       <ul class="tags"><li><span data-i18n="tag1">Estructuras financieras</span></li><li><span data-i18n="tag2">Estructuras jurídicas</span></li><li><span data-i18n="tag3">Desarrollo de negocios</span></li><li><span data-i18n="tag4">Consultoría</span></li></ul>
     </div>
-    <div class="hero-v">
-      <div class="hv">
-        <figure class="hv-ph"><img src="img/reunion.webp" width="1500" height="1200" fetchpriority="high" alt="Socios cerrando una reunión con un apretón de manos en una oficina luminosa" data-i18n-alt="alt.reu"></figure>
-        <div class="badge-ip" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0.0 -81.0 108.4 81.0">
-<path fill="#2FBF8A" d="M20.75 -70.67 L20.70 -71.68 L20.55 -72.69 L20.30 -73.68 L19.96 -74.64 L19.52 -75.56 L19.00 -76.43 L18.39 -77.25 L17.71 -78.00 L16.96 -78.68 L16.14 -79.29 L15.27 -79.81 L14.35 -80.25 L13.39 -80.59 L12.40 -80.84 L11.39 -80.99 L10.38 -81.04 L9.36 -80.99 L8.35 -80.84 L7.36 -80.59 L6.40 -80.25 L5.48 -79.81 L4.61 -79.29 L3.79 -78.68 L3.04 -78.00 L2.36 -77.25 L1.75 -76.43 L1.23 -75.56 L0.79 -74.64 L0.45 -73.68 L0.20 -72.69 L0.05 -71.68 L0.00 -70.67 L0.05 -69.65 L0.20 -68.64 L0.45 -67.65 L0.79 -66.69 L1.23 -65.77 L1.75 -64.90 L2.36 -64.08 L3.04 -63.33 L3.79 -62.65 L4.61 -62.04 L5.48 -61.52 L6.40 -61.08 L7.36 -60.74 L8.35 -60.49 L9.36 -60.34 L10.37 -60.29 L11.39 -60.34 L12.40 -60.49 L13.39 -60.74 L14.35 -61.08 L15.27 -61.52 L16.14 -62.04 L16.96 -62.65 L17.71 -63.33 L18.39 -64.08 L19.00 -64.90 L19.52 -65.77 L19.96 -66.69 L20.30 -67.65 L20.55 -68.64 L20.70 -69.65 Z"/>
-<path fill="#FFFFFF" d="M20.75 -53.67 L20.75 0.00 L0.00 0.00 L0.00 -53.67 Z M108.41 -41.02 L108.28 -43.75 L108.01 -46.22 L107.58 -48.67 L106.94 -51.33 L106.21 -53.70 L105.33 -56.03 L104.19 -58.52 L103.02 -60.71 L101.72 -62.82 L100.29 -64.86 L98.73 -66.80 L96.89 -68.82 L94.92 -70.71 L93.01 -72.31 L91.02 -73.79 L88.93 -75.15 L86.77 -76.37 L84.54 -77.46 L82.01 -78.50 L79.65 -79.30 L77.25 -79.94 L74.57 -80.49 L72.11 -80.82 L69.63 -81.00 L67.14 -81.03 L64.66 -80.91 L61.94 -80.60 L59.50 -80.16 L56.84 -79.51 L54.47 -78.75 L51.93 -77.76 L49.67 -76.71 L47.92 -75.78 L46.00 -74.62 L44.15 -73.36 L42.57 -72.16 L41.05 -70.88 L39.59 -69.52 L38.20 -68.10 L36.73 -66.42 L35.34 -64.66 L34.20 -63.03 L33.13 -61.35 L32.15 -59.62 L31.15 -57.62 L30.36 -55.80 L29.57 -53.70 L28.97 -51.81 L28.35 -49.40 L27.88 -46.96 L27.54 -44.24 L27.39 -41.76 L27.37 0.00 L48.12 0.00 L48.12 -5.15 L50.12 -4.11 L52.38 -3.08 L54.71 -2.20 L57.08 -1.47 L59.50 -0.88 L61.94 -0.44 L64.41 -0.15 L66.90 -0.01 L69.38 -0.03 L71.86 -0.20 L74.33 -0.51 L76.77 -0.98 L79.18 -1.60 L81.54 -2.37 L83.85 -3.28 L86.11 -4.33 L88.72 -5.76 L91.02 -7.25 L93.40 -9.04 L95.47 -10.83 L97.41 -12.76 L99.21 -14.81 L101.02 -17.19 L102.52 -19.48 L103.86 -21.86 L105.03 -24.33 L106.04 -26.87 L106.94 -29.71 L107.58 -32.37 L108.07 -35.31 L108.35 -38.28 Z M87.66 -40.28 L87.54 -38.34 L87.23 -36.43 L86.74 -34.55 L86.06 -32.73 L85.21 -30.99 L84.19 -29.34 L83.02 -27.79 L81.70 -26.37 L80.24 -25.08 L78.67 -23.95 L76.99 -22.97 L75.23 -22.16 L73.40 -21.53 L71.51 -21.08 L69.59 -20.82 L67.65 -20.75 L65.71 -20.87 L63.80 -21.18 L61.92 -21.67 L60.10 -22.35 L58.36 -23.20 L56.71 -24.22 L55.16 -25.39 L53.74 -26.71 L52.45 -28.17 L51.32 -29.74 L50.34 -31.42 L49.53 -33.18 L48.90 -35.01 L48.45 -36.90 L48.19 -38.82 L48.12 -40.76 L48.24 -42.70 L48.55 -44.61 L49.04 -46.49 L49.72 -48.31 L50.57 -50.05 L51.59 -51.70 L52.76 -53.25 L54.08 -54.67 L55.54 -55.96 L57.11 -57.09 L58.79 -58.07 L60.55 -58.88 L62.38 -59.51 L64.27 -59.96 L66.19 -60.22 L68.13 -60.29 L70.07 -60.17 L71.98 -59.86 L73.86 -59.37 L75.68 -58.69 L77.42 -57.84 L79.07 -56.82 L80.62 -55.65 L82.04 -54.33 L83.33 -52.87 L84.46 -51.30 L85.44 -49.62 L86.25 -47.86 L86.88 -46.03 L87.33 -44.14 L87.59 -42.22 Z"/>
-</svg></div>
-        <div class="hcard" aria-hidden="true"><svg class="mchart" viewBox="0 -12 210 124" aria-hidden="true"><path d="M2 106.5H208" stroke="#E7E2D9" stroke-width="1"/><rect class="bar" x="14.6" y="72.6" width="32.8" height="33.4" rx="2" fill="#FFFFFF" stroke="#1E2220" stroke-width="1.2"/><rect class="bar" x="62.6" y="54.6" width="32.8" height="51.4" rx="2" fill="#FFFFFF" stroke="#1E2220" stroke-width="1.2"/><rect class="bar" x="110.6" y="34.6" width="32.8" height="71.4" rx="2" fill="#FFFFFF" stroke="#1E2220" stroke-width="1.2"/><rect class="bar" x="158" y="10" width="34" height="96" rx="2" fill="#0E8A63"/><polyline class="trend" points="31,60 79,42 127,22 175,-2" fill="none" stroke="#1E2220" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" pathLength="1"/><circle cx="175" cy="-2" r="4.5" fill="#0E8A63" stroke="#fff" stroke-width="2"/></svg><b><span data-i18n="hc.t">Estructura a la medida</span></b><small><span data-i18n="hc.s">Diagnóstico · Diseño · Ejecución</span></small></div>
-      </div>
-    </div>
+    <figure class="ph hero-ph"><img src="img/reunion.webp" width="2000" height="1333" fetchpriority="high" alt="Socios cerrando una reunión con un apretón de manos en una oficina luminosa" data-i18n-alt="alt.reu"></figure>
   </section>
 
   <section class="sec serv" id="servicios"><div class="wrap">
@@ -366,39 +371,36 @@ footer{background:var(--grafito);color:#fff;display:grid;grid-template-columns:m
     <div class="flow-w rv"><div class="run" aria-hidden="true"><i></i><i></i><i></i></div><ol class="flow"><li><div class="ci"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6.5" rx="7" ry="2.8"/><path d="M5 6.5v5c0 1.6 3.1 2.8 7 2.8s7-1.2 7-2.8v-5"/><path d="M5 11.5v5c0 1.6 3.1 2.8 7 2.8s7-1.2 7-2.8v-5"/></svg></div><div><h3><span data-i18n="f1.t">Su capital</span></h3><p><span data-i18n="f1.p">Metas, socios y horizonte</span></p></div></li><li><div class="ci"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 9 12 4.5 20.5 9"/><path d="M5.5 9.5v8M10 9.5v8M14 9.5v8M18.5 9.5v8"/><path d="M3.5 20h17"/></svg></div><div><h3><span data-i18n="f2.t">Estructura jurídica</span></h3><p><span data-i18n="f2.p">Sociedad, fideicomiso o vehículo</span></p></div></li><li><div class="ci"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M7 16.5v-3.5M12 16.5V9.5M17 16.5V5.5"/><path d="M14.5 5.5H17V8"/></svg></div><div><h3><span data-i18n="f3.t">Estructura financiera</span></h3><p><span data-i18n="f3.p">Financiamiento y escenarios</span></p></div></li><li><div class="ci"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V9.5L12 4l8 5.5V20"/><path d="M9.5 20v-6h5v6"/><path d="M3 20h18"/></svg></div><div><h3><span data-i18n="f4.t">Proyecto o negocio</span></h3><p><span data-i18n="f4.p">Ejecución con aliados</span></p></div></li><li><div class="ci"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 17 9 11.5l4 4 7.5-7.5"/><path d="M15 8h5.5v5.5"/></svg></div><div><h3><span data-i18n="f5.t">Crecimiento</span></h3><p><span data-i18n="f5.p">Revisión y nuevas etapas</span></p></div></li></ol></div>
   </div></section>
 
-  <section class="sec" id="clientes"><div class="wrap">
-    <div class="sh rv"><div><div class="k"><span data-i18n="pq.k">Para quién trabajamos</span></div><h2 class="h" data-i18n-2="pq.h">Personas y empresas <b>con visión de largo plazo.</b></h2></div></div>
-    <div class="who"><article class="wc rv"><figure><img src="img/inversionista.webp" width="900" height="1125" loading="lazy" decoding="async" alt="Inversionista mirando la ciudad desde una terraza" data-i18n-alt="alt.q1"></figure><h3><span data-i18n="q1.t">Inversionistas</span></h3><p><span data-i18n="q1.p">Un portafolio con orden y criterio.</span></p></article><article class="wc rv"><figure><img src="img/desarrollador.webp" width="900" height="1125" loading="lazy" decoding="async" alt="Equipo revisando la maqueta de un proyecto" data-i18n-alt="alt.q2"></figure><h3><span data-i18n="q2.t">Desarrolladores</span></h3><p><span data-i18n="q2.p">Proyectos estructurados para atraer inversión.</span></p></article><article class="wc rv"><figure><img src="img/familia.webp" width="900" height="1125" loading="lazy" decoding="async" alt="Dos generaciones de una empresa revisando su plan de negocio" data-i18n-alt="alt.q3"></figure><h3><span data-i18n="q3.t">Empresas familiares</span></h3><p><span data-i18n="q3.p">Orden y continuidad entre generaciones.</span></p></article><article class="wc rv"><figure><img src="img/emprendedora.webp" width="900" height="1125" loading="lazy" decoding="async" alt="Emprendedora junto a la ventana de su oficina" data-i18n-alt="alt.q4"></figure><h3><span data-i18n="q4.t">Emprendedores</span></h3><p><span data-i18n="q4.p">Bases sólidas para escalar su negocio.</span></p></article></div>
-  </div></section>
+  <section class="sec who-sec" id="clientes">
+    <div class="wrap"><div class="sh rv"><div><div class="k"><span data-i18n="pq.k">Para quién trabajamos</span></div><h2 class="h" data-i18n-2="pq.h">Personas y empresas <b>con visión de largo plazo.</b></h2></div></div></div>
+    <div class="who"><article class="wc"><figure><img src="img/desarrollador.webp" width="1000" height="1000" loading="lazy" decoding="async" style="object-position:76% 12%" alt="Equipo revisando la maqueta de un proyecto" data-i18n-alt="alt.q2"></figure><div class="wc-t rv"><h3><span data-i18n="q2.t">Desarrolladores</span></h3><p><span data-i18n="q2.p">Proyectos estructurados para atraer inversión.</span></p></div></article><article class="wc"><figure><img src="img/inversionista.webp" width="1000" height="1000" loading="lazy" decoding="async" style="object-position:20% 30%" alt="Inversionista mirando la ciudad desde una terraza" data-i18n-alt="alt.q1"></figure><div class="wc-t rv"><h3><span data-i18n="q1.t">Inversionistas</span></h3><p><span data-i18n="q1.p">Un portafolio con orden y criterio.</span></p></div></article><article class="wc"><figure><img src="img/emprendedora.webp" width="1000" height="1000" loading="lazy" decoding="async" style="object-position:38% 35%" alt="Emprendedora junto a la ventana de su oficina" data-i18n-alt="alt.q4"></figure><div class="wc-t rv"><h3><span data-i18n="q4.t">Emprendedores</span></h3><p><span data-i18n="q4.p">Bases sólidas para escalar su negocio.</span></p></div></article><article class="wc"><figure><img src="img/familia.webp" width="1000" height="1000" loading="lazy" decoding="async" style="object-position:30% 12%" alt="Dos generaciones de una empresa revisando su plan de negocio" data-i18n-alt="alt.q3"></figure><div class="wc-t rv"><h3><span data-i18n="q3.t">Empresas familiares</span></h3><p><span data-i18n="q3.p">Orden y continuidad entre generaciones.</span></p></div></article></div>
+  </section>
 
-  <section class="sec" id="estructura"><div class="wrap est-g">
+  <section class="sec est-band" id="estructura"><div class="wrap est-g">
     <div class="rv"><div class="k"><span data-i18n="est.k">Diseño de estructuras</span></div><h2 class="h" data-i18n-2="est.h">La anatomía de <b>una buena estructura.</b></h2><p class="lead"><span data-i18n="est.p">Cada pieza cumple una función precisa dentro del conjunto.</span></p>
       <ul class="dots"><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span data-i18n="est.b1">Cada activo en su lugar</span></li><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span data-i18n="est.b2">Socios con reglas claras</span></li><li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span data-i18n="est.b3">Una base lista para recibir inversión</span></li></ul></div>
     <div class="dg"><svg class="dg-svg dg-h" viewBox="0 0 680 470" role="img" aria-label="Diagrama de una estructura" data-i18n-aria="a.dg"><path class="ln" d="M340 76 V122" pathLength="1"/><path class="ln" d="M340 196 V232 M115 232 H565 M115 232 V262 M340 232 V262 M565 232 V262" pathLength="1"/><path class="ln" d="M115 326 V362 M340 326 V362 M565 326 V362 M115 362 H565 M340 362 V394" pathLength="1"/><circle class="pulse" cx="340" cy="99" r="4.5"/><circle class="pulse p2" cx="340" cy="214" r="4.5"/><circle class="pulse p3" cx="340" cy="378" r="4.5"/><g class="nd n-w"><rect x="240" y="12" width="200" height="64" rx="6"/><text x="340.0" y="50.0" class="t1" data-i18n="d.inv">Inversionistas</text></g><g class="nd n-g"><rect x="220" y="122" width="240" height="74" rx="6"/><text x="340.0" y="156.0" class="t1" data-i18n="d.hold">Holding</text><text x="340.0" y="176.0" class="t2" data-i18n="d.hold2">Diseño IPSA</text></g><g class="nd n-o"><rect x="20" y="262" width="190" height="64" rx="6"/><text x="115.0" y="300.0" class="t1" data-i18n="d.op">Sociedad operativa</text></g><g class="nd n-o"><rect x="245" y="262" width="190" height="64" rx="6"/><text x="340.0" y="300.0" class="t1" data-i18n="d.fid">Fideicomiso</text></g><g class="nd n-o"><rect x="470" y="262" width="190" height="64" rx="6"/><text x="565.0" y="300.0" class="t1" data-i18n="d.veh">Vehículo de inversión</text></g><g class="nd n-m"><rect x="220" y="394" width="240" height="64" rx="6"/><text x="340.0" y="432.0" class="t1" data-i18n="d.act">Proyectos y activos</text></g></svg><svg class="dg-svg dg-v" viewBox="0 0 340 516" role="img" aria-label="Diagrama de una estructura" data-i18n-aria="a.dg"><path class="ln" d="M180 66 V100" pathLength="1"/><path class="ln" d="M180 170 V190 H24 V480 H48" pathLength="1"/><path class="ln" d="M24 236 H60" pathLength="1"/><path class="ln" d="M24 314 H60" pathLength="1"/><path class="ln" d="M24 392 H60" pathLength="1"/><circle class="pulse" cx="180" cy="83" r="4.5"/><circle class="pulse p2" cx="24" cy="275" r="4.5"/><circle class="pulse p3" cx="24" cy="430" r="4.5"/><g class="nd n-w"><rect x="48" y="10" width="264" height="56" rx="6"/><text x="180.0" y="44.0" class="t1" data-i18n="d.inv">Inversionistas</text></g><g class="nd n-g"><rect x="48" y="100" width="264" height="70" rx="6"/><text x="180.0" y="132.0" class="t1" data-i18n="d.hold">Holding</text><text x="180.0" y="152.0" class="t2" data-i18n="d.hold2">Diseño IPSA</text></g><g class="nd n-o"><rect x="60" y="208" width="264" height="56" rx="6"/><text x="192.0" y="242.0" class="t1" data-i18n="d.op">Sociedad operativa</text></g><g class="nd n-o"><rect x="60" y="286" width="264" height="56" rx="6"/><text x="192.0" y="320.0" class="t1" data-i18n="d.fid">Fideicomiso</text></g><g class="nd n-o"><rect x="60" y="364" width="264" height="56" rx="6"/><text x="192.0" y="398.0" class="t1" data-i18n="d.veh">Vehículo de inversión</text></g><g class="nd n-m"><rect x="48" y="452" width="264" height="56" rx="6"/><text x="180.0" y="486.0" class="t1" data-i18n="d.act">Proyectos y activos</text></g></svg><p class="nota"><span data-i18n="d.nota">Ejemplo ilustrativo. Cada estructura se diseña según su proyecto.</span></p></div>
   </div></section>
 
-  <section class="sec" id="proceso"><div class="wrap proc-g">
-    <figure class="foto"><img src="img/ejecutivo-ventanal.webp" width="1400" height="1750" loading="lazy" decoding="async" alt="Ejecutivo revisando su tableta junto a un ventanal" data-i18n-alt="alt.eje"></figure>
-    <div class="rv"><div class="k"><span data-i18n="proc.k">Cómo trabajamos</span></div><h2 class="h" data-i18n-2="proc.h">Un método claro, <b>paso a paso.</b></h2>
-    <ol class="steps"><li><div class="n">01</div><div><h3><span data-i18n="p1.t">Escuchamos</span></h3><p><span data-i18n="p1.p">Conocemos su proyecto, sus metas y su horizonte.</span></p></div></li><li><div class="n">02</div><div><h3><span data-i18n="p2.t">Diseñamos</span></h3><p><span data-i18n="p2.p">Definimos la estructura financiera y jurídica ideal.</span></p></div></li><li><div class="n">03</div><div><h3><span data-i18n="p3.t">Ejecutamos</span></h3><p><span data-i18n="p3.p">La ponemos en marcha con los aliados correctos.</span></p></div></li><li><div class="n">04</div><div><h3><span data-i18n="p4.t">Acompañamos</span></h3><p><span data-i18n="p4.p">Seguimos cada etapa de su inversión.</span></p></div></li></ol></div>
-  </div></section>
-
-  <section class="enf" id="enfoque">
-    <div class="enf-a"><div class="rv"><div class="k"><span data-i18n="enf.k">Nuestro enfoque</span></div><h2 class="h" data-i18n-2="enf.h">Principios que <b>nos definen.</b></h2><p class="lead"><span data-i18n="enf.p">Cuatro principios guían cada estructura que diseñamos.</span></p></div><p class="enf-q rv" data-i18n-2="enf.q">Primero entendemos, <b>luego estructuramos.</b></p></div>
-    <div class="enf-b">
-      <figure><img src="img/pareja-asesor.webp" width="1600" height="1000" loading="lazy" decoding="async" alt="Asesor revisando un documento con una pareja en una sala luminosa" data-i18n-alt="alt.par"></figure>
-      <div class="vals rv"><div class="val"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 19.5 7.7v8.6L12 20.5l-7.5-4.2V7.7z"/><path d="M12 12l7.5-4.3M12 12v8.5M12 12 4.5 7.7"/></svg><div><h3><span data-i18n="e1.t">Sólida</span></h3><p><span data-i18n="e1.p">Estructuras pensadas para durar.</span></p></div></div><div class="val"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 6 12 6s9.5 6 9.5 6-3.5 6-9.5 6S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></svg><div><h3><span data-i18n="e2.t">Clara</span></h3><p><span data-i18n="e2.p">Cada paso explicado, cada cifra a la vista.</span></p></div></div><div class="val"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="12" r="5"/><circle cx="15" cy="12" r="5"/></svg><div><h3><span data-i18n="e3.t">Cercana</span></h3><p><span data-i18n="e3.p">Acompaña al cliente de principio a fin.</span></p></div></div><div class="val"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 17 9 11.5l4 4 7.5-7.5"/><path d="M15 8h5.5v5.5"/></svg><div><h3><span data-i18n="e4.t">Visionaria</span></h3><p><span data-i18n="e4.p">Decisiones de hoy pensadas para mañana.</span></p></div></div></div>
-    </div>
+  <section class="split proc" id="proceso">
+    <figure class="ph proc-ph"><img src="img/ejecutivo-ventanal.webp" width="2000" height="1333" loading="lazy" decoding="async" alt="Ejecutivo revisando su tableta junto a un ventanal" data-i18n-alt="alt.eje"></figure>
+    <div class="sp-t"><div class="rv"><div class="k"><span data-i18n="proc.k">Cómo trabajamos</span></div><h2 class="h" data-i18n-2="proc.h">Un método claro, <b>paso a paso.</b></h2></div>
+    <ol class="steps rv"><li><div class="n">01</div><div><h3><span data-i18n="p1.t">Escuchamos</span></h3><p><span data-i18n="p1.p">Conocemos su proyecto, sus metas y su horizonte.</span></p></div></li><li><div class="n">02</div><div><h3><span data-i18n="p2.t">Diseñamos</span></h3><p><span data-i18n="p2.p">Definimos la estructura financiera y jurídica ideal.</span></p></div></li><li><div class="n">03</div><div><h3><span data-i18n="p3.t">Ejecutamos</span></h3><p><span data-i18n="p3.p">La ponemos en marcha con los aliados correctos.</span></p></div></li><li><div class="n">04</div><div><h3><span data-i18n="p4.t">Acompañamos</span></h3><p><span data-i18n="p4.p">Seguimos cada etapa de su inversión.</span></p></div></li></ol></div>
   </section>
 
-  <section class="sec cta-b"><div class="wrap">
-    <div class="cta-g rv">
-      <div class="cta-st"><div class="k"><span data-i18n="cta.k">Consultoría</span></div><h2 class="h" data-i18n-2="cta.h">Decisiones con <b>respaldo experto.</b></h2><p class="lead"><span data-i18n="cta.p">Acompañamiento cercano, de la primera reunión a la puesta en marcha.</span></p><a class="btn btn-p" href="#contacto"><span data-i18n="hero.c1">Conversemos</span></a></div>
-      <figure class="cta-ph"><img src="img/socios-edificio.webp" width="1500" height="1200" loading="lazy" decoding="async" alt="Tres socios observan juntos un edificio de oficinas" data-i18n-alt="alt.soc"></figure>
-    </div>
-  </div></section>
+  <section class="enf" id="enfoque">
+    <div class="enf-a"><div class="rv"><div class="k"><span data-i18n="enf.k">Nuestro enfoque</span></div><h2 class="h" data-i18n-2="enf.h">Principios que <b>nos definen.</b></h2><p class="lead"><span data-i18n="enf.p">Cuatro principios guían cada estructura que diseñamos.</span></p></div></div>
+    <div class="enf-qc"><p class="enf-q rv" data-i18n-2="enf.q">Primero entendemos, <b>luego estructuramos.</b></p></div>
+    <figure class="ph enf-ph"><img src="img/pareja-asesor.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="Asesor revisando un documento con una pareja en una sala luminosa" data-i18n-alt="alt.par"></figure>
+    <div class="vals rv"><div class="val"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 19.5 7.7v8.6L12 20.5l-7.5-4.2V7.7z"/><path d="M12 12l7.5-4.3M12 12v8.5M12 12 4.5 7.7"/></svg><div><h3><span data-i18n="e1.t">Sólida</span></h3><p><span data-i18n="e1.p">Estructuras pensadas para durar.</span></p></div></div><div class="val"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 6 12 6s9.5 6 9.5 6-3.5 6-9.5 6S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></svg><div><h3><span data-i18n="e2.t">Clara</span></h3><p><span data-i18n="e2.p">Cada paso explicado, cada cifra a la vista.</span></p></div></div><div class="val"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="12" r="5"/><circle cx="15" cy="12" r="5"/></svg><div><h3><span data-i18n="e3.t">Cercana</span></h3><p><span data-i18n="e3.p">Acompaña al cliente de principio a fin.</span></p></div></div><div class="val"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 17 9 11.5l4 4 7.5-7.5"/><path d="M15 8h5.5v5.5"/></svg><div><h3><span data-i18n="e4.t">Visionaria</span></h3><p><span data-i18n="e4.p">Decisiones de hoy pensadas para mañana.</span></p></div></div></div>
+  </section>
 
-  <section class="sec cont" id="contacto" style="padding-top:0"><div class="wrap cont-g">
+  <section class="split cta" id="consultoria">
+    <figure class="ph cta-ph"><img src="img/socios-edificio.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="Tres socios observan juntos un edificio de oficinas" data-i18n-alt="alt.soc"></figure>
+    <div class="sp-t cta-st"><div class="rv"><div class="k"><span data-i18n="cta.k">Consultoría</span></div><h2 class="h" data-i18n-2="cta.h">Decisiones con <b>respaldo experto.</b></h2><p class="lead"><span data-i18n="cta.p">Acompañamiento cercano, de la primera reunión a la puesta en marcha.</span></p><a class="btn btn-p" href="#contacto"><span data-i18n="hero.c1">Conversemos</span></a></div></div>
+  </section>
+
+  <section class="sec cont" id="contacto"><div class="wrap cont-g">
     <div>
       <div class="k"><span data-i18n="cont.k">Contacto</span></div>
       <h2 class="h" data-i18n-2="cont.h">Conversemos sobre <b>su próxima inversión.</b></h2>
@@ -437,7 +439,7 @@ footer{background:var(--grafito);color:#fff;display:grid;grid-template-columns:m
 
 <script>
 (function(){
-  var T = {"es": {"nav.serv": "Servicios", "nav.proc": "Cómo trabajamos", "nav.enf": "Enfoque", "nav.cont": "Contacto", "nav.cta": "Conversemos", "a.nav": "Principal", "a.lang": "Idioma", "a.home": "IPSA, inicio", "a.rad": "Servicios de IPSA", "a.dg": "Diagrama de una estructura", "a.wam": "Diseño WAM!, abre wampty.com", "hero.k": "Investments Platform", "hero.h": "La estructura detrás de|cada gran inversión.", "hero.p": "Diseñamos estructuras financieras y jurídicas, impulsamos el desarrollo de negocios y acompañamos cada decisión con consultoría especializada.", "hero.c1": "Conversemos", "hero.c2": "Ver servicios", "tag1": "Estructuras financieras", "tag2": "Estructuras jurídicas", "tag3": "Desarrollo de negocios", "tag4": "Consultoría", "serv.k": "Servicios", "serv.h": "Cuatro frentes,|una sola plataforma.", "serv.p": "Cada proyecto recibe la combinación exacta que necesita.", "s1.t": "Estructuras financieras", "s1.p": "Su capital, bien organizado.", "s1.b1": "Modelos y esquemas de inversión", "s1.b2": "Opciones de financiamiento", "s1.b3": "Proyecciones y escenarios", "s2.t": "Estructuras jurídicas", "s2.p": "El vehículo correcto para cada proyecto.", "s2.b1": "Sociedades y holdings", "s2.b2": "Fideicomisos y vehículos de inversión", "s2.b3": "Acuerdos entre socios", "s3.t": "Desarrollo de negocios", "s3.p": "Proyectos conectados con capital y aliados.", "s3.b1": "Búsqueda de socios e inversionistas", "s3.b2": "Alianzas estratégicas", "s3.b3": "Expansión a nuevos mercados", "s4.t": "Consultoría", "s4.p": "Criterio experto en cada decisión.", "s4.b1": "Diagnóstico y estrategia", "s4.b2": "Evaluación de oportunidades", "s4.b3": "Acompañamiento continuo", "proc.k": "Cómo trabajamos", "proc.h": "Un método claro,|paso a paso.", "p1.t": "Escuchamos", "p1.p": "Conocemos su proyecto, sus metas y su horizonte.", "p2.t": "Diseñamos", "p2.p": "Definimos la estructura financiera y jurídica ideal.", "p3.t": "Ejecutamos", "p3.p": "La ponemos en marcha con los aliados correctos.", "p4.t": "Acompañamos", "p4.p": "Seguimos cada etapa de su inversión.", "enf.k": "Nuestro enfoque", "enf.h": "Principios que|nos definen.", "enf.p": "Cuatro principios guían cada estructura que diseñamos.", "enf.q": "Primero entendemos,|luego estructuramos.", "e1.t": "Sólida", "e1.p": "Estructuras pensadas para durar.", "e2.t": "Clara", "e2.p": "Cada paso explicado, cada cifra a la vista.", "e3.t": "Cercana", "e3.p": "Acompaña al cliente de principio a fin.", "e4.t": "Visionaria", "e4.p": "Decisiones de hoy pensadas para mañana.", "cont.k": "Contacto", "cont.h": "Conversemos sobre|su próxima inversión.", "cont.p": "Cuéntenos su proyecto y agendamos una reunión.", "cont.l1": "Reunión para conocer su proyecto", "cont.l2": "Propuesta de estructura para su caso", "cont.l3": "Confidencialidad en cada conversación", "f.nombre": "Nombre", "f.empresa": "Empresa (opcional)", "f.correo": "Correo", "f.tel": "Teléfono", "f.tema": "¿En qué podemos ayudarle?", "f.o0": "Elija una opción", "f.o5": "Otro tema", "f.msg": "Mensaje", "f.enviar": "Enviar", "f.ok": "Abrimos su programa de correo con el mensaje listo para info@ipsasite.com. Si no se abre, escríbanos directamente a esa dirección.", "c.correo": "Correo", "c.copiar": "Copiar", "c.copiado": "Copiado", "m.asunto": "Contacto desde ipsasite.com", "m.empresa": "Empresa", "f.err": "Complete nombre y un correo válido.", "foot.q": "La estructura detrás de|cada gran inversión.", "foot.r": "Todos los derechos reservados.", "foot.d": "Diseño", "hc.t": "Estructura a la medida", "hc.s": "Diagnóstico · Diseño · Ejecución", "alt.reu": "Socios cerrando una reunión con un apretón de manos en una oficina luminosa", "rad.c": "Visión integral", "flu.k": "El recorrido de su capital", "flu.h": "De la idea al crecimiento,|en cinco pasos.", "f1.t": "Su capital", "f1.p": "Metas, socios y horizonte", "f2.t": "Estructura jurídica", "f2.p": "Sociedad, fideicomiso o vehículo", "f3.t": "Estructura financiera", "f3.p": "Financiamiento y escenarios", "f4.t": "Proyecto o negocio", "f4.p": "Ejecución con aliados", "f5.t": "Crecimiento", "f5.p": "Revisión y nuevas etapas", "pq.k": "Para quién trabajamos", "pq.h": "Personas y empresas|con visión de largo plazo.", "q1.t": "Inversionistas", "q1.p": "Un portafolio con orden y criterio.", "q2.t": "Desarrolladores", "q2.p": "Proyectos estructurados para atraer inversión.", "q3.t": "Empresas familiares", "q3.p": "Orden y continuidad entre generaciones.", "q4.t": "Emprendedores", "q4.p": "Bases sólidas para escalar su negocio.", "alt.q1": "Inversionista mirando la ciudad desde una terraza", "alt.q2": "Equipo revisando la maqueta de un proyecto", "alt.q3": "Dos generaciones de una empresa revisando su plan de negocio", "alt.q4": "Emprendedora junto a la ventana de su oficina", "est.k": "Diseño de estructuras", "est.h": "La anatomía de|una buena estructura.", "est.p": "Cada pieza cumple una función precisa dentro del conjunto.", "est.b1": "Cada activo en su lugar", "est.b2": "Socios con reglas claras", "est.b3": "Una base lista para recibir inversión", "d.inv": "Inversionistas", "d.hold": "Holding", "d.hold2": "Diseño IPSA", "d.op": "Sociedad operativa", "d.fid": "Fideicomiso", "d.veh": "Vehículo de inversión", "d.act": "Proyectos y activos", "d.nota": "Ejemplo ilustrativo. Cada estructura se diseña según su proyecto.", "cta.k": "Consultoría", "cta.h": "Decisiones con|respaldo experto.", "cta.p": "Acompañamiento cercano, de la primera reunión a la puesta en marcha.", "alt.soc": "Tres socios observan juntos un edificio de oficinas", "alt.eje": "Ejecutivo revisando su tableta junto a un ventanal", "alt.par": "Asesor revisando un documento con una pareja en una sala luminosa"}, "en": {"nav.serv": "Services", "nav.proc": "How we work", "nav.enf": "Approach", "nav.cont": "Contact", "nav.cta": "Let's talk", "a.nav": "Main", "a.lang": "Language", "a.home": "IPSA, home", "a.rad": "IPSA services", "a.dg": "Diagram of a structure", "a.wam": "Design by WAM!, opens wampty.com", "hero.k": "Investments Platform", "hero.h": "The structure behind|every great investment.", "hero.p": "We design financial and legal structures, drive business development and support every decision with specialized consulting.", "hero.c1": "Let's talk", "hero.c2": "See services", "tag1": "Financial structuring", "tag2": "Legal structuring", "tag3": "Business development", "tag4": "Consulting", "serv.k": "Services", "serv.h": "Four disciplines,|one platform.", "serv.p": "Every project gets exactly the combination it needs.", "s1.t": "Financial structuring", "s1.p": "Your capital, well organized.", "s1.b1": "Investment models and schemes", "s1.b2": "Financing options", "s1.b3": "Projections and scenarios", "s2.t": "Legal structuring", "s2.p": "The right vehicle for every project.", "s2.b1": "Companies and holdings", "s2.b2": "Trusts and investment vehicles", "s2.b3": "Shareholder agreements", "s3.t": "Business development", "s3.p": "Projects connected with capital and partners.", "s3.b1": "Partner and investor search", "s3.b2": "Strategic alliances", "s3.b3": "Expansion into new markets", "s4.t": "Consulting", "s4.p": "Expert judgment in every decision.", "s4.b1": "Assessment and strategy", "s4.b2": "Opportunity evaluation", "s4.b3": "Ongoing support", "proc.k": "How we work", "proc.h": "A clear method,|step by step.", "p1.t": "We listen", "p1.p": "We get to know your project, your goals and your horizon.", "p2.t": "We design", "p2.p": "We define the ideal financial and legal structure.", "p3.t": "We execute", "p3.p": "We put it in motion with the right partners.", "p4.t": "We stay with you", "p4.p": "We follow every stage of your investment.", "enf.k": "Our approach", "enf.h": "The principles|that define us.", "enf.p": "Four principles guide every structure we design.", "enf.q": "First we understand,|then we structure.", "e1.t": "Solid", "e1.p": "Structures built to last.", "e2.t": "Clear", "e2.p": "Every step explained, every figure in sight.", "e3.t": "Personal", "e3.p": "Stands by each client from start to finish.", "e4.t": "Visionary", "e4.p": "Today's decisions, made for tomorrow.", "cont.k": "Contact", "cont.h": "Let's talk about|your next investment.", "cont.p": "Tell us about your project and we will schedule a meeting.", "cont.l1": "A meeting to understand your project", "cont.l2": "A structure proposal for your case", "cont.l3": "Confidentiality in every conversation", "f.nombre": "Name", "f.empresa": "Company (optional)", "f.correo": "Email", "f.tel": "Phone", "f.tema": "How can we help you?", "f.o0": "Choose an option", "f.o5": "Other topic", "f.msg": "Message", "f.enviar": "Send", "f.ok": "We opened your email app with the message ready for info@ipsasite.com. If it does not open, write to that address directly.", "c.correo": "Email", "c.copiar": "Copy", "c.copiado": "Copied", "m.asunto": "Contact from ipsasite.com", "m.empresa": "Company", "f.err": "Please enter your name and a valid email.", "foot.q": "The structure behind|every great investment.", "foot.r": "All rights reserved.", "foot.d": "Design by", "hc.t": "Tailored structure", "hc.s": "Assessment · Design · Execution", "alt.reu": "Partners closing a meeting with a handshake in a bright office", "rad.c": "Integrated view", "flu.k": "The journey of your capital", "flu.h": "From idea to growth,|in five steps.", "f1.t": "Your capital", "f1.p": "Goals, partners and horizon", "f2.t": "Legal structure", "f2.p": "Company, trust or vehicle", "f3.t": "Financial structure", "f3.p": "Financing and scenarios", "f4.t": "Project or business", "f4.p": "Execution with partners", "f5.t": "Growth", "f5.p": "Review and next stages", "pq.k": "Who we work with", "pq.h": "People and companies|with a long-term vision.", "q1.t": "Investors", "q1.p": "A portfolio built with order and judgment.", "q2.t": "Developers", "q2.p": "Projects structured to attract investment.", "q3.t": "Family businesses", "q3.p": "Order and continuity across generations.", "q4.t": "Entrepreneurs", "q4.p": "Solid foundations to scale your business.", "alt.q1": "Investor looking at the city from a terrace", "alt.q2": "Team reviewing a project model", "alt.q3": "Two generations of a company reviewing their business plan", "alt.q4": "Entrepreneur by her office window", "est.k": "Structure design", "est.h": "The anatomy of|a well-designed structure.", "est.p": "Every piece plays a precise role within the whole.", "est.b1": "Every asset in its place", "est.b2": "Partners with clear rules", "est.b3": "A base ready to receive investment", "d.inv": "Investors", "d.hold": "Holding", "d.hold2": "IPSA design", "d.op": "Operating company", "d.fid": "Trust", "d.veh": "Investment vehicle", "d.act": "Projects and assets", "d.nota": "Illustrative example. Every structure is designed around your project.", "cta.k": "Consulting", "cta.h": "Decisions backed|by expert advice.", "cta.p": "Close guidance, from the first meeting to launch.", "alt.soc": "Three partners looking up at an office building together", "alt.eje": "Executive checking his tablet by a floor-to-ceiling window", "alt.par": "Advisor reviewing a document with a couple in a bright lounge"}};
+  var T = {"es": {"nav.serv": "Servicios", "nav.proc": "Cómo trabajamos", "nav.enf": "Enfoque", "nav.cont": "Contacto", "nav.cta": "Conversemos", "a.nav": "Principal", "a.lang": "Idioma", "a.home": "IPSA, inicio", "a.rad": "Servicios de IPSA", "a.dg": "Diagrama de una estructura", "a.wam": "Diseño WAM!, abre wampty.com", "hero.k": "Investments Platform", "hero.h": "La estructura detrás de|cada gran inversión.", "hero.p": "Diseñamos estructuras financieras y jurídicas, impulsamos el desarrollo de negocios y acompañamos cada decisión con consultoría especializada.", "hero.c1": "Conversemos", "hero.c2": "Ver servicios", "tag1": "Estructuras financieras", "tag2": "Estructuras jurídicas", "tag3": "Desarrollo de negocios", "tag4": "Consultoría", "serv.k": "Servicios", "serv.h": "Cuatro frentes,|una sola plataforma.", "serv.p": "Cada proyecto recibe la combinación exacta que necesita.", "s1.t": "Estructuras financieras", "s1.p": "Su capital, bien organizado.", "s1.b1": "Modelos y esquemas de inversión", "s1.b2": "Opciones de financiamiento", "s1.b3": "Proyecciones y escenarios", "s2.t": "Estructuras jurídicas", "s2.p": "El vehículo correcto para cada proyecto.", "s2.b1": "Sociedades y holdings", "s2.b2": "Fideicomisos y vehículos de inversión", "s2.b3": "Acuerdos entre socios", "s3.t": "Desarrollo de negocios", "s3.p": "Proyectos conectados con capital y aliados.", "s3.b1": "Búsqueda de socios e inversionistas", "s3.b2": "Alianzas estratégicas", "s3.b3": "Expansión a nuevos mercados", "s4.t": "Consultoría", "s4.p": "Criterio experto en cada decisión.", "s4.b1": "Diagnóstico y estrategia", "s4.b2": "Evaluación de oportunidades", "s4.b3": "Acompañamiento continuo", "proc.k": "Cómo trabajamos", "proc.h": "Un método claro,|paso a paso.", "p1.t": "Escuchamos", "p1.p": "Conocemos su proyecto, sus metas y su horizonte.", "p2.t": "Diseñamos", "p2.p": "Definimos la estructura financiera y jurídica ideal.", "p3.t": "Ejecutamos", "p3.p": "La ponemos en marcha con los aliados correctos.", "p4.t": "Acompañamos", "p4.p": "Seguimos cada etapa de su inversión.", "enf.k": "Nuestro enfoque", "enf.h": "Principios que|nos definen.", "enf.p": "Cuatro principios guían cada estructura que diseñamos.", "enf.q": "Primero entendemos,|luego estructuramos.", "e1.t": "Sólida", "e1.p": "Estructuras pensadas para durar.", "e2.t": "Clara", "e2.p": "Cada paso explicado, cada cifra a la vista.", "e3.t": "Cercana", "e3.p": "Acompaña al cliente de principio a fin.", "e4.t": "Visionaria", "e4.p": "Decisiones de hoy pensadas para mañana.", "cont.k": "Contacto", "cont.h": "Conversemos sobre|su próxima inversión.", "cont.p": "Cuéntenos su proyecto y agendamos una reunión.", "cont.l1": "Reunión para conocer su proyecto", "cont.l2": "Propuesta de estructura para su caso", "cont.l3": "Confidencialidad en cada conversación", "f.nombre": "Nombre", "f.empresa": "Empresa (opcional)", "f.correo": "Correo", "f.tel": "Teléfono", "f.tema": "¿En qué podemos ayudarle?", "f.o0": "Elija una opción", "f.o5": "Otro tema", "f.msg": "Mensaje", "f.enviar": "Enviar", "f.ok": "Abrimos su programa de correo con el mensaje listo para info@ipsasite.com. Si no se abre, escríbanos directamente a esa dirección.", "c.correo": "Correo", "c.copiar": "Copiar", "c.copiado": "Copiado", "m.asunto": "Contacto desde ipsasite.com", "m.empresa": "Empresa", "f.err": "Complete nombre y un correo válido.", "foot.q": "La estructura detrás de|cada gran inversión.", "foot.r": "Todos los derechos reservados.", "foot.d": "Diseño", "alt.reu": "Socios cerrando una reunión con un apretón de manos en una oficina luminosa", "rad.c": "Visión integral", "flu.k": "El recorrido de su capital", "flu.h": "De la idea al crecimiento,|en cinco pasos.", "f1.t": "Su capital", "f1.p": "Metas, socios y horizonte", "f2.t": "Estructura jurídica", "f2.p": "Sociedad, fideicomiso o vehículo", "f3.t": "Estructura financiera", "f3.p": "Financiamiento y escenarios", "f4.t": "Proyecto o negocio", "f4.p": "Ejecución con aliados", "f5.t": "Crecimiento", "f5.p": "Revisión y nuevas etapas", "pq.k": "Para quién trabajamos", "pq.h": "Personas y empresas|con visión de largo plazo.", "q1.t": "Inversionistas", "q1.p": "Un portafolio con orden y criterio.", "q2.t": "Desarrolladores", "q2.p": "Proyectos estructurados para atraer inversión.", "q3.t": "Empresas familiares", "q3.p": "Orden y continuidad entre generaciones.", "q4.t": "Emprendedores", "q4.p": "Bases sólidas para escalar su negocio.", "alt.q1": "Inversionista mirando la ciudad desde una terraza", "alt.q2": "Equipo revisando la maqueta de un proyecto", "alt.q3": "Dos generaciones de una empresa revisando su plan de negocio", "alt.q4": "Emprendedora junto a la ventana de su oficina", "est.k": "Diseño de estructuras", "est.h": "La anatomía de|una buena estructura.", "est.p": "Cada pieza cumple una función precisa dentro del conjunto.", "est.b1": "Cada activo en su lugar", "est.b2": "Socios con reglas claras", "est.b3": "Una base lista para recibir inversión", "d.inv": "Inversionistas", "d.hold": "Holding", "d.hold2": "Diseño IPSA", "d.op": "Sociedad operativa", "d.fid": "Fideicomiso", "d.veh": "Vehículo de inversión", "d.act": "Proyectos y activos", "d.nota": "Ejemplo ilustrativo. Cada estructura se diseña según su proyecto.", "cta.k": "Consultoría", "cta.h": "Decisiones con|respaldo experto.", "cta.p": "Acompañamiento cercano, de la primera reunión a la puesta en marcha.", "alt.soc": "Tres socios observan juntos un edificio de oficinas", "alt.eje": "Ejecutivo revisando su tableta junto a un ventanal", "alt.par": "Asesor revisando un documento con una pareja en una sala luminosa"}, "en": {"nav.serv": "Services", "nav.proc": "How we work", "nav.enf": "Approach", "nav.cont": "Contact", "nav.cta": "Let's talk", "a.nav": "Main", "a.lang": "Language", "a.home": "IPSA, home", "a.rad": "IPSA services", "a.dg": "Diagram of a structure", "a.wam": "Design by WAM!, opens wampty.com", "hero.k": "Investments Platform", "hero.h": "The structure behind|every great investment.", "hero.p": "We design financial and legal structures, drive business development and support every decision with specialized consulting.", "hero.c1": "Let's talk", "hero.c2": "See services", "tag1": "Financial structuring", "tag2": "Legal structuring", "tag3": "Business development", "tag4": "Consulting", "serv.k": "Services", "serv.h": "Four disciplines,|one platform.", "serv.p": "Every project gets exactly the combination it needs.", "s1.t": "Financial structuring", "s1.p": "Your capital, well organized.", "s1.b1": "Investment models and schemes", "s1.b2": "Financing options", "s1.b3": "Projections and scenarios", "s2.t": "Legal structuring", "s2.p": "The right vehicle for every project.", "s2.b1": "Companies and holdings", "s2.b2": "Trusts and investment vehicles", "s2.b3": "Shareholder agreements", "s3.t": "Business development", "s3.p": "Projects connected with capital and partners.", "s3.b1": "Partner and investor search", "s3.b2": "Strategic alliances", "s3.b3": "Expansion into new markets", "s4.t": "Consulting", "s4.p": "Expert judgment in every decision.", "s4.b1": "Assessment and strategy", "s4.b2": "Opportunity evaluation", "s4.b3": "Ongoing support", "proc.k": "How we work", "proc.h": "A clear method,|step by step.", "p1.t": "We listen", "p1.p": "We get to know your project, your goals and your horizon.", "p2.t": "We design", "p2.p": "We define the ideal financial and legal structure.", "p3.t": "We execute", "p3.p": "We put it in motion with the right partners.", "p4.t": "We stay with you", "p4.p": "We follow every stage of your investment.", "enf.k": "Our approach", "enf.h": "The principles|that define us.", "enf.p": "Four principles guide every structure we design.", "enf.q": "First we understand,|then we structure.", "e1.t": "Solid", "e1.p": "Structures built to last.", "e2.t": "Clear", "e2.p": "Every step explained, every figure in sight.", "e3.t": "Personal", "e3.p": "Stands by each client from start to finish.", "e4.t": "Visionary", "e4.p": "Today's decisions, made for tomorrow.", "cont.k": "Contact", "cont.h": "Let's talk about|your next investment.", "cont.p": "Tell us about your project and we will schedule a meeting.", "cont.l1": "A meeting to understand your project", "cont.l2": "A structure proposal for your case", "cont.l3": "Confidentiality in every conversation", "f.nombre": "Name", "f.empresa": "Company (optional)", "f.correo": "Email", "f.tel": "Phone", "f.tema": "How can we help you?", "f.o0": "Choose an option", "f.o5": "Other topic", "f.msg": "Message", "f.enviar": "Send", "f.ok": "We opened your email app with the message ready for info@ipsasite.com. If it does not open, write to that address directly.", "c.correo": "Email", "c.copiar": "Copy", "c.copiado": "Copied", "m.asunto": "Contact from ipsasite.com", "m.empresa": "Company", "f.err": "Please enter your name and a valid email.", "foot.q": "The structure behind|every great investment.", "foot.r": "All rights reserved.", "foot.d": "Design by", "alt.reu": "Partners closing a meeting with a handshake in a bright office", "rad.c": "Integrated view", "flu.k": "The journey of your capital", "flu.h": "From idea to growth,|in five steps.", "f1.t": "Your capital", "f1.p": "Goals, partners and horizon", "f2.t": "Legal structure", "f2.p": "Company, trust or vehicle", "f3.t": "Financial structure", "f3.p": "Financing and scenarios", "f4.t": "Project or business", "f4.p": "Execution with partners", "f5.t": "Growth", "f5.p": "Review and next stages", "pq.k": "Who we work with", "pq.h": "People and companies|with a long-term vision.", "q1.t": "Investors", "q1.p": "A portfolio built with order and judgment.", "q2.t": "Developers", "q2.p": "Projects structured to attract investment.", "q3.t": "Family businesses", "q3.p": "Order and continuity across generations.", "q4.t": "Entrepreneurs", "q4.p": "Solid foundations to scale your business.", "alt.q1": "Investor looking at the city from a terrace", "alt.q2": "Team reviewing a project model", "alt.q3": "Two generations of a company reviewing their business plan", "alt.q4": "Entrepreneur by her office window", "est.k": "Structure design", "est.h": "The anatomy of|a well-designed structure.", "est.p": "Every piece plays a precise role within the whole.", "est.b1": "Every asset in its place", "est.b2": "Partners with clear rules", "est.b3": "A base ready to receive investment", "d.inv": "Investors", "d.hold": "Holding", "d.hold2": "IPSA design", "d.op": "Operating company", "d.fid": "Trust", "d.veh": "Investment vehicle", "d.act": "Projects and assets", "d.nota": "Illustrative example. Every structure is designed around your project.", "cta.k": "Consulting", "cta.h": "Decisions backed|by expert advice.", "cta.p": "Close guidance, from the first meeting to launch.", "alt.soc": "Three partners looking up at an office building together", "alt.eje": "Executive checking his tablet by a floor-to-ceiling window", "alt.par": "Advisor reviewing a document with a couple in a bright lounge"}};
   var C = {"correo": "info@ipsasite.com", "telefono": "", "whatsapp": "", "direccion": ""};
   function qa(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); }
   function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
